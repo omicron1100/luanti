@@ -64,6 +64,179 @@
 #if USE_SOUND
 	#include "client/sound/sound_openal.h"
 #endif
+#if BUILD_UI
+#include "ui/manager.h"
+#endif
+
+/*
+	Text input system
+*/
+
+struct TextDestNodeMetadata : public TextDest
+{
+	TextDestNodeMetadata(v3s16 p, Client *client)
+	{
+		m_p = p;
+		m_client = client;
+	}
+	// This is deprecated I guess? -celeron55
+	void gotText(const std::wstring &text)
+	{
+		std::string ntext = wide_to_utf8(text);
+		infostream << "Submitting 'text' field of node at (" << m_p.X << ","
+			   << m_p.Y << "," << m_p.Z << "): " << ntext << std::endl;
+		StringMap fields;
+		fields["text"] = ntext;
+		m_client->sendNodemetaFields(m_p, "", fields);
+	}
+	void gotText(const StringMap &fields)
+	{
+		m_client->sendNodemetaFields(m_p, "", fields);
+	}
+
+	v3s16 m_p;
+	Client *m_client;
+};
+
+struct TextDestPlayerInventory : public TextDest
+{
+	TextDestPlayerInventory(Client *client)
+	{
+		m_client = client;
+		m_formname.clear();
+	}
+	TextDestPlayerInventory(Client *client, const std::string &formname)
+	{
+		m_client = client;
+		m_formname = formname;
+	}
+	void gotText(const StringMap &fields)
+	{
+		m_client->sendInventoryFields(m_formname, fields);
+	}
+
+	Client *m_client;
+};
+
+struct LocalFormspecHandler : public TextDest
+{
+	LocalFormspecHandler(const std::string &formname)
+	{
+		m_formname = formname;
+	}
+
+	LocalFormspecHandler(const std::string &formname, Client *client):
+		m_client(client)
+	{
+		m_formname = formname;
+	}
+
+	void gotText(const StringMap &fields)
+	{
+		if (m_formname == "MT_PAUSE_MENU") {
+			if (fields.find("btn_sound") != fields.end()) {
+				g_gamecallback->changeVolume();
+				return;
+			}
+
+			if (fields.find("btn_key_config") != fields.end()) {
+				g_gamecallback->keyConfig();
+				return;
+			}
+
+			if (fields.find("btn_touchscreen_layout") != fields.end()) {
+				g_gamecallback->touchscreenLayout();
+				return;
+			}
+
+			if (fields.find("btn_exit_menu") != fields.end()) {
+				g_gamecallback->disconnect();
+				return;
+			}
+
+			if (fields.find("btn_exit_os") != fields.end()) {
+				g_gamecallback->exitToOS();
+#ifndef __ANDROID__
+				RenderingEngine::get_raw_device()->closeDevice();
+#endif
+				return;
+			}
+
+			if (fields.find("btn_change_password") != fields.end()) {
+				g_gamecallback->changePassword();
+				return;
+			}
+
+			return;
+		}
+
+		if (m_formname == "MT_DEATH_SCREEN") {
+			assert(m_client != nullptr);
+
+			if (fields.find("quit") != fields.end())
+				m_client->sendRespawnLegacy();
+
+			return;
+		}
+
+		if (m_client->modsLoaded())
+			m_client->getScript()->on_formspec_input(m_formname, fields);
+	}
+
+	Client *m_client = nullptr;
+};
+
+/* Form update callback */
+
+class NodeMetadataFormSource: public IFormSource
+{
+public:
+	NodeMetadataFormSource(ClientMap *map, v3s16 p):
+		m_map(map),
+		m_p(p)
+	{
+	}
+	const std::string &getForm() const
+	{
+		static const std::string empty_string = "";
+		NodeMetadata *meta = m_map->getNodeMetadata(m_p);
+
+		if (!meta)
+			return empty_string;
+
+		return meta->getString("formspec");
+	}
+
+	virtual std::string resolveText(const std::string &str)
+	{
+		NodeMetadata *meta = m_map->getNodeMetadata(m_p);
+
+		if (!meta)
+			return str;
+
+		return meta->resolveString(str);
+	}
+
+	ClientMap *m_map;
+	v3s16 m_p;
+};
+
+class PlayerInventoryFormSource: public IFormSource
+{
+public:
+	PlayerInventoryFormSource(Client *client):
+		m_client(client)
+	{
+	}
+
+	const std::string &getForm() const
+	{
+		LocalPlayer *player = m_client->getEnv().getLocalPlayer();
+		return player->inventory_formspec;
+	}
+
+	Client *m_client;
+};
 
 class NodeDugEvent : public MtEvent
 {
@@ -725,6 +898,7 @@ private:
 	void handleClientEvent_ShowFormSpec(ClientEvent *event, CameraOrientation *cam);
 	void handleClientEvent_ShowCSMFormSpec(ClientEvent *event, CameraOrientation *cam);
 	void handleClientEvent_ShowPauseMenuFormSpec(ClientEvent *event, CameraOrientation *cam);
+	void handleClientEvent_UiMessage(ClientEvent *event, CameraOrientation *cam);
 	void handleClientEvent_HandleParticleEvent(ClientEvent *event,
 		CameraOrientation *cam);
 	void handleClientEvent_HudAdd(ClientEvent *event, CameraOrientation *cam);
@@ -775,6 +949,9 @@ private:
 
 	std::unique_ptr<GameUI> m_game_ui;
 	irr_ptr<GUIChatConsole> gui_chat_console;
+#if BUILD_UI
+	irr_ptr<ui::GUIManagerElem> gui_manager_elem;
+#endif
 	MapDrawControl *draw_control = nullptr;
 	Camera *camera = nullptr;
 	irr_ptr<Clouds> clouds;
@@ -1114,6 +1291,14 @@ void Game::run()
 
 void Game::shutdown()
 {
+	auto formspec = m_game_ui->getFormspecGUI();
+	if (formspec)
+		formspec->quitMenu();
+
+#if BUILD_UI
+	ui::g_manager.reset();
+#endif
+
 	// Clear text when exiting.
 	m_game_ui->clearText();
 
@@ -1123,6 +1308,9 @@ void Game::shutdown()
 	clouds.reset();
 
 	gui_chat_console.reset();
+#if BUILD_UI
+	gui_manager_elem.reset();
+#endif
 
 	sky.reset();
 
@@ -1425,6 +1613,10 @@ bool Game::createClient(const GameStartData &start_data)
 	if (mapper && client->modsLoaded())
 		client->getScript()->on_minimap_ready(mapper);
 
+#if BUILD_UI
+	ui::g_manager.setClient(client);
+#endif
+
 	return true;
 }
 
@@ -1453,7 +1645,12 @@ bool Game::initGui()
 	gui_chat_console = make_irr<GUIChatConsole>(guienv, guienv->getRootGUIElement(),
 			-1, chat_backend, client, &g_menumgr);
 
-	if (shouldShowTouchControls())
+#if BUILD_UI
+	// Thingy to draw UI manager after chat but before formspecs.
+	gui_manager_elem = make_irr<ui::GUIManagerElem>(guienv, guiroot, -1);
+#endif
+
+	if (shouldShowTouchControls()) {
 		g_touchcontrols = new TouchControls(device, texture_src);
 
 	return true;
@@ -2652,6 +2849,7 @@ const ClientEventHandler Game::clientEventHandler[CLIENTEVENT_MAX] = {
 	{&Game::handleClientEvent_ShowFormSpec},
 	{&Game::handleClientEvent_ShowCSMFormSpec},
 	{&Game::handleClientEvent_ShowPauseMenuFormSpec},
+	{&Game::handleClientEvent_UiMessage},
 	{&Game::handleClientEvent_HandleParticleEvent},
 	{&Game::handleClientEvent_HandleParticleEvent},
 	{&Game::handleClientEvent_HandleParticleEvent},
@@ -2736,6 +2934,14 @@ void Game::handleClientEvent_ShowPauseMenuFormSpec(ClientEvent *event, CameraOri
 
 	delete event->show_formspec.formspec;
 	delete event->show_formspec.formname;
+}
+
+void Game::handleClientEvent_UiMessage(ClientEvent *event, CameraOrientation *cam)
+{
+#if BUILD_UI
+	ui::g_manager.receiveMessage(*event->ui_message.data);
+#endif
+	delete event->ui_message.data;
 }
 
 void Game::handleClientEvent_HandleParticleEvent(ClientEvent *event,
@@ -4150,7 +4356,7 @@ void Game::drawScene(ProfilerGraph *graph, RunStats *stats)
 		draw_crosshair = false;
 
 	this->m_rendering_engine->draw_scene(sky_color, this->m_game_ui->m_flags.show_hud,
-			draw_wield_tool, draw_crosshair);
+			this->m_game_ui->m_flags.show_chat, draw_wield_tool, draw_crosshair);
 
 	/*
 		Profiler graph

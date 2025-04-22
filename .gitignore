@@ -138,3 +138,40 @@ lib/irrlichtmt
 
 # Generated mod storage database
 client/mod_storage.sqlite
+
+## Visual Studio build artifacts
+*.dir/
+Release/
+x64/
+vcpkg-manifest-install.log
+vcpkg_installed/
+
+## CMake build artifacts
+CMakeFiles/
+*.cmake
+CMakeCache.txt
+compile_commands.json
+cmake_install.cmake
+install_manifest.txt
+CTestTestfile.cmake
+_deps/
+*.tlog
+*.log
+*.idb
+*.pdb
+*.ilk
+*.obj
+*.lib
+*.dll
+*.exe
+*.manifest
+*.exp
+*.suo
+*.user
+*.userosscache
+*.sdf
+*.opensdf
+*.VC.db
+*.VC.VC.opendb
+*.VC.db-shm
+*.VC.db-wal

@@ -58,7 +58,7 @@ extern "C" {
 #endif
 
 // TODO: luanti.conf with migration
-#define CONFIGFILE "minetest.conf"
+#define CONFIGFILE "luanti.conf"
 #define DEBUGFILE "debug.txt"
 #define DEFAULT_SERVER_PORT 30000
 

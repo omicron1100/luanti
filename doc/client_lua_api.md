@@ -37,7 +37,7 @@ the `init.lua` scripts in a shared environment.
 
 In order to load client-side mods, the following conditions need to be satisfied:
 
-1) `$path_user/minetest.conf` contains the setting `enable_client_modding = true`
+1) `$path_user/luanti.conf` contains the setting `enable_client_modding = true`
 
 2) The client-side mod located in `$path_user/clientmods/<modname>` is added to
     `$path_user/clientmods/mods.conf` as `load_mod_<modname> = true`.
@@ -595,7 +595,7 @@ Setting-related
 ---------------
 
 * `core.settings`: Settings object containing all of the settings from the
-  main config file (`minetest.conf`). Check lua_api.md for class reference.
+  main config file (`luanti.conf`). Check lua_api.md for class reference.
 * `core.setting_get_pos(name)`: Loads a setting from the main settings and
   parses it as a position (in the format `(1,2,3)`). Returns a position or nil.
 
@@ -810,7 +810,7 @@ Methods:
     * Returns `true` on success, otherwise returns `nil`
 
 ### Settings
-An interface to read config files in the format of `minetest.conf`.
+An interface to read config files in the format of `luanti.conf`.
 
 It can be created via `Settings(filename)`.
 

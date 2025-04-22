@@ -3,20 +3,23 @@ local insert = table.insert
 local sprintf = string.format
 local rep = string.rep
 
-local minetest_example_header = [[
-#    This file contains a list of all available settings and their default value for minetest.conf
+local luanti_example_header = [[
+#    This file contains a list of all available settings and their default value for luanti.conf
 
 #    By default, all the settings are commented and not functional.
 #    Uncomment settings by removing the preceding #.
 
-#    minetest.conf is read by default from:
-#    ../minetest.conf
-#    ../../minetest.conf
+#    luanti.conf is read by default from:
+#    ../luanti.conf
+#    ../../luanti.conf
 #    Any other path can be chosen by passing the path as a parameter
-#    to the program, eg. "luanti.exe --config ../minetest.conf.example".
+#    to the program, eg. "luanti.exe --config ../luanti.conf.example".
 
 #    Further documentation:
 #    https://wiki.luanti.org/
+
+#    Note: If you have an existing minetest.conf file, it will be automatically
+#    converted to luanti.conf format when you first run the program.
 
 ]]
 
@@ -34,8 +37,8 @@ local group_format_template = [[
 
 ]]
 
-local function create_minetest_conf_example(settings)
-	local result = { minetest_example_header }
+local function create_luanti_conf_example(settings)
+	local result = { luanti_example_header }
 	for _, entry in ipairs(settings) do
 		if entry.type == "category" then
 			if entry.level == 0 then
@@ -126,14 +129,39 @@ local function create_translation_file(settings)
 	return concat(result, "\n")
 end
 
-local file = assert(io.open("minetest.conf.example", "w"))
-file:write(create_minetest_conf_example(settingtypes.parse_config_file(true, false)))
+-- Check if minetest.conf exists and convert it to luanti.conf if needed
+local function convert_minetest_to_luanti()
+	local minetest_conf = io.open("minetest.conf", "r")
+	if minetest_conf then
+		local content = minetest_conf:read("*all")
+		minetest_conf:close()
+		
+		-- Only convert if luanti.conf doesn't exist yet
+		local luanti_conf = io.open("luanti.conf", "r")
+		if not luanti_conf then
+			luanti_conf = io.open("luanti.conf", "w")
+			if luanti_conf then
+				luanti_conf:write(content)
+				luanti_conf:close()
+				print("Converted minetest.conf to luanti.conf")
+				-- Delete the original minetest.conf file
+				os.remove("minetest.conf")
+				print("Deleted original minetest.conf file")
+			end
+		else
+			luanti_conf:close()
+		end
+	end
+end
+
+-- Generate example config file
+local file = assert(io.open("luanti.conf.example", "w"))
+file:write(create_luanti_conf_example(settingtypes.parse_config_file(true, false)))
 file:close()
 
+-- Check for and convert minetest.conf if it exists
+convert_minetest_to_luanti()
+
 file = assert(io.open("src/settings_translation_file.cpp", "w"))
--- If 'minetest.conf.example' appears in the 'bin' folder, the line below may have to be
--- used instead. The file will also appear in the 'bin' folder.
---file = assert(io.open("settings_translation_file.cpp", "w"))
--- We don't want hidden settings to be translated, so we set read_all to false.
 file:write(create_translation_file(settingtypes.parse_config_file(false, false)))
 file:close()

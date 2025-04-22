@@ -108,12 +108,12 @@ Worlds can be found as separate folders in: `user/worlds/`
 Configuration file
 ------------------
 - Default location:
-    `user/minetest.conf`
+    `user/luanti.conf`
 - This file is created by closing Luanti for the first time.
 - A specific file can be specified on the command line:
     `--config <path-to-file>`
 - A run-in-place build will look for the configuration file in
-    `location_of_exe/../minetest.conf` and also `location_of_exe/../../minetest.conf`
+    `location_of_exe/../luanti.conf` and also `location_of_exe/../../luanti.conf`
 
 Command-line options
 --------------------

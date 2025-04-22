@@ -22,7 +22,7 @@ public:
 
 	KeyPress(const irr::SEvent::SKeyInput &in);
 
-	// Get a string representation that is suitable for use in minetest.conf
+	// Get a string representation that is suitable for use in luanti.conf
 	std::string sym() const;
 
 	// Get a human-readable string representation

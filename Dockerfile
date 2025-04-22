@@ -36,6 +36,7 @@ COPY .git /usr/src/luanti/.git
 COPY CMakeLists.txt /usr/src/luanti/CMakeLists.txt
 COPY README.md /usr/src/luanti/README.md
 COPY minetest.conf.example /usr/src/luanti/minetest.conf.example
+COPY luanti.conf.example /usr/src/luanti/luanti.conf.example
 COPY builtin /usr/src/luanti/builtin
 COPY cmake /usr/src/luanti/cmake
 COPY doc /usr/src/luanti/doc
@@ -71,6 +72,7 @@ WORKDIR /var/lib/minetest
 COPY --from=builder /usr/local/share/luanti /usr/local/share/luanti
 COPY --from=builder /usr/local/bin/luantiserver /usr/local/bin/luantiserver
 COPY --from=builder /usr/local/share/doc/luanti/minetest.conf.example /etc/minetest/minetest.conf
+COPY --from=builder /usr/local/share/doc/luanti/luanti.conf.example /etc/minetest/luanti.conf
 COPY --from=builder /usr/local/lib/libspatialindex* /usr/local/lib/
 COPY --from=builder /usr/local/lib/libluajit* /usr/local/lib/
 USER minetest:minetest
@@ -79,4 +81,4 @@ EXPOSE 30000/udp 30000/tcp
 VOLUME /var/lib/minetest/ /etc/minetest/
 
 ENTRYPOINT ["/usr/local/bin/luantiserver"]
-CMD ["--config", "/etc/minetest/minetest.conf"]
+CMD ["--config", "/etc/minetest/luanti.conf"]

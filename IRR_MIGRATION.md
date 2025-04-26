@@ -1,6 +1,6 @@
 ## Irrlicht Dependencies
 
-### 1. Core Irrlicht Types (irrlichttypes.h/irrlichttypes_bloated.h)
+### 1. Core Irrlicht Types (irrlichttypes.h)
 - `src/clientdynamicinfo.h`
 - `src/database/database.h`
 - `src/gamedef.h`

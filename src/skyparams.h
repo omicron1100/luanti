@@ -9,7 +9,9 @@
 #include "SColor.h"
 #include "irr_v2d.h"
 
-using namespace irr;
+namespace video = irr::video;
+
+using namespace irr; // TODO: remove "using namespace" from headers
 
 struct SkyColor
 {

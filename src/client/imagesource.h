@@ -9,7 +9,9 @@
 #include <set>
 #include <string>
 
-using namespace irr;
+namespace video = irr::video;
+
+using namespace irr; // TODO: remove "using namespace" from headers
 
 // This file is only used for internal generation of images.
 // Use texturesource.h to handle textures.

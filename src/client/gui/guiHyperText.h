@@ -12,8 +12,6 @@
 #include <IGUIEnvironment.h>
 #include "irr_v3d.h"
 
-using namespace irr;
-
 class ISimpleTextureSource;
 class Client;
 class GUIScrollBar;
@@ -74,17 +72,17 @@ public:
 	{
 		std::list<Tag *> tags;
 		ElementType type;
-		core::stringw text = "";
+		irr::core::stringw text = "";
 
-		core::dimension2d<u32> dim;
-		core::position2d<s32> pos;
+		irr::core::dimension2d<u32> dim;
+		irr::core::position2d<s32> pos;
 		s32 drawwidth;
 
 		FloatType floating = FLOAT_NONE;
 
 		ValignType valign;
 
-		gui::IGUIFont *font;
+		irr::gui::IGUIFont *font;
 
 		irr::video::SColor color;
 		irr::video::SColor hovercolor;
@@ -157,39 +155,39 @@ protected:
 class TextDrawer
 {
 public:
-	TextDrawer(const wchar_t *text, Client *client, gui::IGUIEnvironment *environment,
+	TextDrawer(const wchar_t *text, Client *client, irr::gui::IGUIEnvironment *environment,
 			ISimpleTextureSource *tsrc);
 
-	void place(const core::rect<s32> &dest_rect);
+	void place(const irr::core::rect<s32> &dest_rect);
 	inline s32 getHeight() { return m_height; };
-	void draw(const core::rect<s32> &clip_rect,
-			const core::position2d<s32> &dest_offset);
-	ParsedText::Element *getElementAt(core::position2d<s32> pos);
+	void draw(const irr::core::rect<s32> &clip_rect,
+			const irr::core::position2d<s32> &dest_offset);
+	ParsedText::Element *getElementAt(irr::core::position2d<s32> pos);
 	ParsedText::Tag *m_hovertag;
 
 protected:
 	struct RectWithMargin
 	{
-		core::rect<s32> rect;
+		irr::core::rect<s32> rect;
 		s32 margin;
 	};
 
 	ParsedText m_text;
 	Client *m_client; ///< null in the mainmenu
 	ISimpleTextureSource *m_tsrc;
-	gui::IGUIEnvironment *m_guienv;
+	irr::gui::IGUIEnvironment *m_guienv;
 	s32 m_height;
 	s32 m_voffset;
 	std::vector<RectWithMargin> m_floating;
 };
 
-class GUIHyperText : public gui::IGUIElement
+class GUIHyperText : public irr::gui::IGUIElement
 {
 public:
 	//! constructor
-	GUIHyperText(const wchar_t *text, gui::IGUIEnvironment *environment,
-			gui::IGUIElement *parent, s32 id,
-			const core::rect<s32> &rectangle, Client *client,
+	GUIHyperText(const wchar_t *text, irr::gui::IGUIEnvironment *environment,
+			irr::gui::IGUIElement *parent, s32 id,
+			const irr::core::rect<s32> &rectangle, Client *client,
 			ISimpleTextureSource *tsrc);
 
 	//! destructor
@@ -198,9 +196,9 @@ public:
 	//! draws the element and its children
 	virtual void draw();
 
-	core::dimension2du getTextDimension();
+	irr::core::dimension2du getTextDimension();
 
-	bool OnEvent(const SEvent &event);
+	bool OnEvent(const irr::SEvent &event);
 
 protected:
 	// GUI members
@@ -210,8 +208,8 @@ protected:
 
 	// Positioning
 	u32 m_scrollbar_width;
-	core::rect<s32> m_display_text_rect;
-	core::position2d<s32> m_text_scrollpos;
+	irr::core::rect<s32> m_display_text_rect;
+	irr::core::position2d<s32> m_text_scrollpos;
 
 	ParsedText::Element *getElementAt(s32 X, s32 Y);
 	void checkHover(s32 X, s32 Y);

@@ -9,11 +9,10 @@
 #include <IGUIEnvironment.h>
 #include "irr_v2d.h"
 
-using namespace irr;
 
 class GUIFormSpecMenu;
 
-class GUIInventoryList : public gui::IGUIElement
+class GUIInventoryList : public irr::gui::IGUIElement
 {
 public:
 	struct ItemSpec
@@ -49,16 +48,16 @@ public:
 	struct Options {
 		// whether a one-pixel border for the slots should be drawn and its color
 		bool slotborder = false;
-		video::SColor slotbordercolor = video::SColor(200, 0, 0, 0);
+		irr::video::SColor slotbordercolor = irr::video::SColor(200, 0, 0, 0);
 		// colors for normal and highlighted slot background
-		video::SColor slotbg_n = video::SColor(255, 128, 128, 128);
-		video::SColor slotbg_h = video::SColor(255, 192, 192, 192);
+		irr::video::SColor slotbg_n = irr::video::SColor(255, 128, 128, 128);
+		irr::video::SColor slotbg_h = irr::video::SColor(255, 192, 192, 192);
 	};
 
-	GUIInventoryList(gui::IGUIEnvironment *env,
-		gui::IGUIElement *parent,
+	GUIInventoryList(irr::gui::IGUIEnvironment *env,
+		irr::gui::IGUIElement *parent,
 		s32 id,
-		const core::rect<s32> &rectangle,
+		const irr::core::rect<s32> &rectangle,
 		InventoryManager *invmgr,
 		const InventoryLocation &inventoryloc,
 		const std::string &listname,
@@ -68,11 +67,11 @@ public:
 		const v2f32 &slot_spacing,
 		GUIFormSpecMenu *fs_menu,
 		const Options &options,
-		gui::IGUIFont *font);
+		irr::gui::IGUIFont *font);
 
 	virtual void draw() override;
 
-	virtual bool OnEvent(const SEvent &event) override;
+	virtual bool OnEvent(const irr::SEvent &event) override;
 
 	const InventoryLocation &getInventoryloc() const
 	{
@@ -84,13 +83,13 @@ public:
 		return m_listname;
 	}
 
-	void setSlotBGColors(const video::SColor &slotbg_n, const video::SColor &slotbg_h)
+	void setSlotBGColors(const irr::video::SColor &slotbg_n, const irr::video::SColor &slotbg_h)
 	{
 		m_options.slotbg_n = slotbg_n;
 		m_options.slotbg_h = slotbg_h;
 	}
 
-	void setSlotBorders(bool slotborder, const video::SColor &slotbordercolor)
+	void setSlotBorders(bool slotborder, const irr::video::SColor &slotbordercolor)
 	{
 		m_options.slotborder = slotborder;
 		m_options.slotbordercolor = slotbordercolor;
@@ -125,7 +124,7 @@ private:
 	Options m_options;
 
 	// the font
-	gui::IGUIFont *m_font;
+	irr::gui::IGUIFont *m_font;
 
 	// the index of the hovered item; -1 if no item is hovered
 	s32 m_hovered_i;

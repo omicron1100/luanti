@@ -21,25 +21,23 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include <IGUIEnvironment.h>
 #include "irr_v2d.h"
 
-using namespace irr;
-
 class ISimpleTextureSource;
 
 
-class GUIBackgroundImage : public gui::IGUIElement
+class GUIBackgroundImage : public irr::gui::IGUIElement
 {
 public:
-	GUIBackgroundImage(gui::IGUIEnvironment *env, gui::IGUIElement *parent, s32 id,
-		const core::rect<s32> &rectangle, const std::string &name,
-		const core::rect<s32> &middle, ISimpleTextureSource *tsrc, bool autoclip,
+	GUIBackgroundImage(irr::gui::IGUIEnvironment *env, irr::gui::IGUIElement *parent, s32 id,
+		const irr::core::rect<s32> &rectangle, const std::string &name,
+		const irr::core::rect<s32> &middle, ISimpleTextureSource *tsrc, bool autoclip,
 		v2s32 autoclip_offset);
 
 	virtual void draw() override;
 
 private:
 	std::string m_name;
-	core::rect<s32> m_middle;
+	irr::core::rect<s32> m_middle;
 	ISimpleTextureSource *m_tsrc;
 	bool m_autoclip;
-	v2s32 m_autoclip_offset;
+	irr::v2s32 m_autoclip_offset;
 };

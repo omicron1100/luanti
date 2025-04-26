@@ -9,7 +9,6 @@
 #include <IGUIEnvironment.h>
 #include "game.h"
 
-using namespace irr;
 class Client;
 class EnrichedString;
 class GUIChatConsole;
@@ -94,7 +93,7 @@ private:
 	gui::IGUIStaticText *m_guitext_status = nullptr;
 	std::wstring m_statustext;
 	float m_statustext_time = 0.0f;
-	video::SColor m_statustext_initial_color;
+	irr::video::SColor m_statustext_initial_color;
 
 	gui::IGUIStaticText *m_guitext_chat = nullptr; // Chat text
 	u32 m_recent_chat_count = 0;

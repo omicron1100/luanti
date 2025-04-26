@@ -10,13 +10,11 @@
 #include <IGUIElement.h>
 #include <IGUIEnvironment.h>
 
-using namespace irr;
-
-class GUIScene : public gui::IGUIElement
+class GUIScene : public irr::gui::IGUIElement
 {
 public:
-	GUIScene(gui::IGUIEnvironment *env, scene::ISceneManager *smgr,
-		 gui::IGUIElement *parent, core::recti rect, s32 id = -1);
+	GUIScene(irr::gui::IGUIEnvironment *env, scene::ISceneManager *smgr,
+		 irr::gui::IGUIElement *parent, irr::core::recti rect, s32 id = -1);
 
 	~GUIScene();
 
@@ -31,7 +29,7 @@ public:
 	void setStyles(const std::array<StyleSpec, StyleSpec::NUM_STATES> &styles);
 
 	virtual void draw();
-	virtual bool OnEvent(const SEvent &event);
+	virtual bool OnEvent(const irr::SEvent &event);
 
 private:
 	void calcOptimalDistance();

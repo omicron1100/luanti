@@ -18,14 +18,11 @@ the arrow buttons where there is insufficient space.
 
 class ISimpleTextureSource;
 
-using namespace irr;
-using namespace gui;
-
-class GUIScrollBar : public IGUIElement
+class GUIScrollBar : public irr::gui::IGUIElement
 {
 public:
-	GUIScrollBar(IGUIEnvironment *environment, IGUIElement *parent, s32 id,
-			core::rect<s32> rectangle, bool horizontal, bool auto_scale,
+	GUIScrollBar(irr::gui::IGUIEnvironment *environment, irr::gui::IGUIElement *parent, s32 id,
+			irr::core::rect<s32> rectangle, bool horizontal, bool auto_scale,
 			ISimpleTextureSource *tsrc);
 
 	enum ArrowVisibility
@@ -37,7 +34,7 @@ public:
 
 	virtual void draw() override;
 	virtual void updateAbsolutePosition() override;
-	virtual bool OnEvent(const SEvent &event) override;
+	virtual bool OnEvent(const irr::SEvent &event) override;
 	virtual void OnPostRender(u32 time_ms) override;
 
 	s32 getMax() const { return max_pos; }
@@ -67,11 +64,11 @@ public:
 
 private:
 	void refreshControls();
-	s32 getPosFromMousePos(const core::position2di &p) const;
+	s32 getPosFromMousePos(const irr::core::position2di &p) const;
 	f32 range() const { return f32(max_pos - min_pos); }
 
-	IGUIButton *up_button;
-	IGUIButton *down_button;
+	irr::gui::IGUIButton *up_button;
+	irr::gui::IGUIButton *down_button;
 	ArrowVisibility arrow_visibility = DEFAULT;
 	bool is_dragging;
 	bool is_horizontal;
@@ -89,8 +86,8 @@ private:
 	s32 page_size;
 	s32 border_size;
 
-	core::rect<s32> slider_rect;
-	video::SColor current_icon_color;
+	irr::core::rect<s32> slider_rect;
+	irr::video::SColor current_icon_color;
 
 	ISimpleTextureSource *m_tsrc;
 

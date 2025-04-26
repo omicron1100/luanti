@@ -10,14 +10,11 @@
 #include "guiScrollBar.h"
 #include <vector>
 
-using namespace irr;
-using namespace irr::gui;
-
-class GUIEditBox : public IGUIEditBox
+class GUIEditBox : public irr::gui::IGUIEditBox
 {
 public:
-	GUIEditBox(IGUIEnvironment *environment, IGUIElement *parent, s32 id,
-			core::rect<s32> rectangle, bool border, bool writable) :
+	GUIEditBox(irr::gui::IGUIEnvironment *environment, irr::gui::IGUIElement *parent, s32 id,
+			irr::core::rect<s32> rectangle, bool border, bool writable) :
 			IGUIEditBox(environment, parent, id, rectangle),
 			m_border(border), m_writable(writable), m_frame_rect(rectangle)
 	{
@@ -26,20 +23,20 @@ public:
 	virtual ~GUIEditBox();
 
 	//! Sets another skin independent font.
-	virtual void setOverrideFont(IGUIFont *font = 0);
+	virtual void setOverrideFont(irr::gui::IGUIFont *font = 0);
 
-	virtual IGUIFont *getOverrideFont() const { return m_override_font; }
+	virtual irr::gui::IGUIFont *getOverrideFont() const { return m_override_font; }
 
 	//! Get the font which is used right now for drawing
 	/** Currently this is the override font when one is set and the
 	font of the active skin otherwise */
-	virtual IGUIFont *getActiveFont() const;
+	virtual irr::gui::IGUIFont *getActiveFont() const;
 
 	//! Sets another color for the text.
-	virtual void setOverrideColor(video::SColor color);
+	virtual void setOverrideColor(irr::video::SColor color);
 
 	//! Gets the override color
-	virtual video::SColor getOverrideColor() const;
+	virtual irr::video::SColor getOverrideColor() const;
 
 	//! Sets if the text should use the overide color or the
 	//! color in the gui skin.
@@ -107,7 +104,7 @@ public:
 
 	//! Gets the size area of the text in the edit box
 	//! \return Returns the size in pixels of the text
-	virtual core::dimension2du getTextDimension();
+	virtual irr::core::dimension2du getTextDimension();
 
 	//! set true if this EditBox is writable
 	virtual void setWritable(bool can_write_text);
@@ -135,7 +132,7 @@ protected:
 	virtual s32 getCursorPos(s32 x, s32 y) = 0;
 
 	bool processKey(const SEvent &event);
-	virtual void inputString(const core::stringw &str);
+	virtual void inputString(const irr::core::stringw &str);	
 	virtual void inputChar(wchar_t c);
 
 	//! returns the line number that the cursor is on
@@ -144,7 +141,7 @@ protected:
 	//! update the vertical scrollBar (visibilty & position)
 	void updateVScrollBar();
 
-	gui::IGUIFont *m_override_font = nullptr;
+	irr::gui::IGUIFont *m_override_font = nullptr;
 
 	bool m_override_color_enabled = false;
 	bool m_word_wrap = false;
@@ -156,7 +153,7 @@ protected:
 	bool m_passwordbox = false;
 	wchar_t m_passwordchar = L'*';
 
-	std::vector<core::stringw> m_broken_text;
+	std::vector<irr::core::stringw> m_broken_text;
 	std::vector<s32> m_broken_text_positions;
 
 	EGUI_ALIGNMENT m_halign = EGUIA_UPPERLEFT;
@@ -168,9 +165,9 @@ protected:
 	s32 m_vscroll_pos = 0; // scroll position in characters
 	u32 m_max = 0;
 
-	video::SColor m_override_color = video::SColor(101, 255, 255, 255);
+	irr::video::SColor m_override_color = irr::video::SColor(101, 255, 255, 255);
 
-	core::rect<s32> m_current_text_rect = core::rect<s32>(0, 0, 1, 1);
+	irr::core::rect<s32> m_current_text_rect = irr::core::rect<s32>(0, 0, 1, 1);
 
 	bool m_writable;
 
@@ -179,10 +176,10 @@ protected:
 	s32 m_mark_begin = 0;
 	s32 m_mark_end = 0;
 
-	gui::IGUIFont *m_last_break_font = nullptr;
+	irr::gui::IGUIFont *m_last_break_font = nullptr;
 	IOSOperator *m_operator = nullptr;
 
-	core::rect<s32> m_frame_rect; // temporary values
+	irr::core::rect<s32> m_frame_rect; // temporary values
 
 	u32 m_scrollbar_width = 0;
 	GUIScrollBar *m_vscrollbar = nullptr;

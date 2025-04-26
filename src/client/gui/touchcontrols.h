@@ -6,19 +6,17 @@
 #pragma once
 
 #include "irrlichttypes.h"
-#include "irr_v2d.h"
-#include "touchscreenlayout.h"
-#include "itemdef.h"
-#include "util/basic_macros.h"
-#include "client/keycode.h"
+#include "IEventReceiver.h"
 
 #include <memory>
 #include <optional>
 #include <unordered_map>
 #include <vector>
-// irr includes
-#include <IEventReceiver.h>
-#include <line3d.h>
+
+#include "itemdef.h"
+#include "touchscreenlayout.h"
+#include "util/basic_macros.h"
+#include "client/keycode.h"
 
 namespace irr
 {
@@ -36,11 +34,6 @@ namespace irr
 }
 class ISimpleTextureSource;
 
-namespace core = irr::core;
-namespace gui = irr::gui;
-
-using namespace irr::core; // TODO: Remove "using namespace irr"
-using namespace irr::gui; // TODO: Remove "using namespace irr"
 
 enum class TapState
 {
@@ -65,7 +58,7 @@ struct button_info
 	float repeat_counter;
 	KeyPress keypress;
 	std::vector<size_t> pointer_ids;
-	std::shared_ptr<gui::IGUIImage> gui_button = nullptr;
+	std::shared_ptr<irr::gui::IGUIImage> gui_button = nullptr;
 
 	enum {
 		NOT_TOGGLEABLE,
@@ -112,7 +105,7 @@ public:
 	 * This may only be used if isShootlineAvailable returns true.
 	 * Otherwise, the normal crosshair must be used.
 	 */
-	core::line3d<f32> getShootline() { return m_shootline; }
+	// line3d<f32> getShootline() { return m_shootline; }
 
 	float getJoystickDirection() { return m_joystick_direction; }
 	float getJoystickSpeed() { return m_joystick_speed; }
@@ -123,16 +116,16 @@ public:
 	void hide();
 	void show();
 
-	void resetHotbarRects();
-	void registerHotbarRect(u16 index, const core::recti &rect);
+	void resetHotbarRects();	
+	void registerHotbarRect(u16 index, const irr::core::recti &rect);
 	std::optional<u16> getHotbarSelection();
 
 	bool isStatusTextOverriden() { return m_overflow_open; }
-	gui::IGUIStaticText *getStatusText() { return m_status_text.get(); }
+	irr::gui::IGUIStaticText *getStatusText() { return m_status_text.get(); }
 
 private:
-	irr::IrrlichtDevice *m_device = nullptr;
-	gui::IGUIEnvironment *m_guienv = nullptr;
+	IrrlichtDevice *m_device = nullptr;
+	irr::gui::IGUIEnvironment *m_guienv = nullptr;
 	IEventReceiver *m_receiver = nullptr;
 	ISimpleTextureSource *m_texturesource = nullptr;
 	bool m_visible = true;
@@ -154,7 +147,7 @@ private:
 	ButtonLayout m_layout;
 	void applyLayout(const ButtonLayout &layout);
 
-	std::unordered_map<u16, core::recti> m_hotbar_rects;
+	std::unordered_map<u16, irr::core::recti> m_hotbar_rects;
 	std::optional<u16> m_hotbar_selection = std::nullopt;
 
 	// value in degree
@@ -168,7 +161,7 @@ private:
 	 *
 	 * Only used for m_interaction_style == TAP
 	 */
-	core::line3d<f32> m_shootline;
+	irr::core::line3d<f32> m_shootline;
 
 	bool m_has_move_id = false;
 	size_t m_move_id;
@@ -189,20 +182,20 @@ private:
 	float m_joystick_direction = 0.0f; // assume forward
 	float m_joystick_speed = 0.0f; // no movement
 	bool m_joystick_status_aux1 = false;
-	std::shared_ptr<gui::IGUIImage> m_joystick_btn_off;
-	std::shared_ptr<gui::IGUIImage> m_joystick_btn_bg;
-	std::shared_ptr<gui::IGUIImage> m_joystick_btn_center;
+	std::shared_ptr<irr::gui::IGUIImage> m_joystick_btn_off;
+	std::shared_ptr<irr::gui::IGUIImage> m_joystick_btn_bg;
+	std::shared_ptr<irr::gui::IGUIImage> m_joystick_btn_center;
 
 	std::vector<button_info> m_buttons;
-	std::shared_ptr<gui::IGUIImage> m_overflow_btn;
+	std::shared_ptr<irr::gui::IGUIImage> m_overflow_btn;
 
 	bool m_overflow_open = false;
-	std::shared_ptr<gui::IGUIStaticText> m_overflow_bg;
+	std::shared_ptr<irr::gui::IGUIStaticText> m_overflow_bg;
 	std::vector<button_info> m_overflow_buttons;
-	std::vector<std::shared_ptr<gui::IGUIStaticText>> m_overflow_button_titles;
-	std::vector<core::recti> m_overflow_button_rects;
+	std::vector<std::shared_ptr<irr::gui::IGUIStaticText>> m_overflow_button_titles;
+	std::vector<irr::core::recti> m_overflow_button_rects;
 
-	std::shared_ptr<gui::IGUIStaticText> m_status_text;
+	std::shared_ptr<irr::gui::IGUIStaticText> m_status_text;
 
 	// Note: TouchControls intentionally uses IGUIImage instead of IGUIButton
 	// for its buttons. We only want static image display, not interactivity,
@@ -210,10 +203,10 @@ private:
 
 	void emitKeyboardEvent(KeyPress keycode, bool pressed);
 
-	void loadButtonTexture(gui::IGUIImage *gui_button, const std::string &path);
+	void loadButtonTexture(irr::gui::IGUIImage *gui_button, const std::string &path);
 	void buttonEmitAction(button_info &btn, bool action);
 
-	bool buttonsHandlePress(std::vector<button_info> &buttons, size_t pointer_id, gui::IGUIElement *element);
+	bool buttonsHandlePress(std::vector<button_info> &buttons, size_t pointer_id, irr::gui::IGUIElement *element);
 	bool buttonsHandleRelease(std::vector<button_info> &buttons, size_t pointer_id);
 	bool buttonsStep(std::vector<button_info> &buttons, float dtime);
 
@@ -225,14 +218,14 @@ private:
 	bool mayAddButton(touch_gui_button_id id);
 	void addButton(std::vector<button_info> &buttons,
 			touch_gui_button_id id, const std::string &image,
-			const core::recti &rect, bool visible);
+			const irr::core::recti &rect, bool visible);
 	void addToggleButton(std::vector<button_info> &buttons,
 			touch_gui_button_id id,
 			const std::string &image_1, const std::string &image_2,
-			const core::recti &rect, bool visible);
+			const irr::core::recti &rect, bool visible);
 
-	gui::IGUIImage *makeButtonDirect(touch_gui_button_id id,
-			const core::recti &rect, bool visible);
+	irr::gui::IGUIImage *makeButtonDirect(touch_gui_button_id id,
+			const irr::core::recti &rect, bool visible);
 
 	// handle pressing hotbar items
 	bool isHotbarButton(const SEvent &event);

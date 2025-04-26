@@ -7,16 +7,14 @@
 #include <IGUIElement.h>
 #include <IGUIEnvironment.h>
 
-using namespace irr;
-
 class Client;
 
-class GUIItemImage : public gui::IGUIElement
+class GUIItemImage : public irr::gui::IGUIElement
 {
 public:
-	GUIItemImage(gui::IGUIEnvironment *env, gui::IGUIElement *parent, s32 id,
-		const core::rect<s32> &rectangle, const std::string &item_name,
-		gui::IGUIFont *font, Client *client);
+	GUIItemImage(irr::gui::IGUIEnvironment *env, irr::gui::IGUIElement *parent, s32 id,
+		const irr::core::rect<s32> &rectangle, const std::string &item_name,
+		irr::gui::IGUIFont *font, Client *client);
 
 	virtual void draw() override;
 
@@ -27,7 +25,7 @@ public:
 
 private:
 	std::string m_item_name;
-	gui::IGUIFont *m_font;
+	irr::gui::IGUIFont *m_font;
 	Client *m_client;
-	core::stringw m_label;
+	irr::core::stringw m_label;
 };

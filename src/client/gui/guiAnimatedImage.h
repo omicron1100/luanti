@@ -4,22 +4,20 @@
 #include <IGUIElement.h>
 #include <IGUIEnvironment.h>
 
-using namespace irr;
-
 class ISimpleTextureSource;
 
-class GUIAnimatedImage : public gui::IGUIElement {
+class GUIAnimatedImage : public irr::gui::IGUIElement {
 public:
-	GUIAnimatedImage(gui::IGUIEnvironment *env, gui::IGUIElement *parent,
-		s32 id, const core::rect<s32> &rectangle);
+	GUIAnimatedImage(irr::gui::IGUIEnvironment *env, irr::gui::IGUIElement *parent,
+		s32 id, const irr::core::rect<s32> &rectangle);
 
 	virtual void draw() override;
 
-	void setTexture(video::ITexture *texture) { m_texture = texture; };
-	video::ITexture *getTexture() const { return m_texture; };
+	void setTexture(irr::video::ITexture *texture) { m_texture = texture; };
+	irr::video::ITexture *getTexture() const { return m_texture; };
 
-	void setMiddleRect(const core::rect<s32> &middle) { m_middle = middle; };
-	core::rect<s32> getMiddleRect() const { return m_middle; };
+	void setMiddleRect(const irr::core::rect<s32> &middle) { m_middle = middle; };
+	irr::core::rect<s32> getMiddleRect() const { return m_middle; };
 
 	void setFrameDuration(u64 duration) { m_frame_duration = duration; };
 	u64 getFrameDuration() const { return m_frame_duration; };
@@ -31,7 +29,7 @@ public:
 	s32 getFrameIndex() const { return m_frame_idx; };
 
 private:
-	video::ITexture *m_texture = nullptr;
+	irr::video::ITexture *m_texture = nullptr;
 
 	u64 m_global_time = 0;
 	s32 m_frame_idx = 0;
@@ -39,5 +37,5 @@ private:
 	u64 m_frame_duration = 0;
 	u64 m_frame_time = 0;
 
-	core::rect<s32> m_middle;
+	irr::core::rect<s32> m_middle;
 };

@@ -6,9 +6,8 @@
 #include "guiButton.h"
 #include "client/keycode.h"
 #include "util/string.h"
+#include "util/types.h"
 #include "gettext.h"
-
-using namespace irr;
 
 class GUIButtonKey : public GUIButton
 {
@@ -16,8 +15,8 @@ class GUIButtonKey : public GUIButton
 
 public:
 	//! Constructor
-	GUIButtonKey(gui::IGUIEnvironment *environment, gui::IGUIElement *parent,
-			s32 id, core::rect<s32> rectangle, ISimpleTextureSource *tsrc,
+	GUIButtonKey(irr::gui::IGUIEnvironment *environment, irr::gui::IGUIElement *parent,
+			s32 id, irr::core::rect<s32> rectangle, ISimpleTextureSource *tsrc,
 			bool noclip = false)
 		: GUIButton(environment, parent, id, rectangle, tsrc, noclip) {}
 
@@ -34,13 +33,13 @@ public:
 	}
 
 	//! Do not drop returned handle
-	static GUIButtonKey *addButton(gui::IGUIEnvironment *environment,
-			const core::rect<s32> &rectangle, ISimpleTextureSource *tsrc,
-			IGUIElement *parent, s32 id, const wchar_t *text = L"",
+	static GUIButtonKey *addButton(irr::gui::IGUIEnvironment *environment,
+			const irr::core::rect<s32> &rectangle, ISimpleTextureSource *tsrc,
+			irr::gui::IGUIElement *parent, s32 id, const wchar_t *text = L"",
 			const wchar_t *tooltiptext = L"");
 
 	//! Called if an event happened
-	virtual bool OnEvent(const SEvent &event) override;
+	virtual bool OnEvent(const irr::SEvent &event) override;
 
 private:
 	void sendKey();

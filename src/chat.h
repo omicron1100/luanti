@@ -10,7 +10,7 @@
 #include <list>
 #include <optional>
 
-#include "irrlichttypes.h"
+#include "util/types.h"
 #include "util/enriched_string.h"
 
 // Chat console related classes

@@ -7,6 +7,7 @@
 #include "util/string.h"
 #include "util/hex.h"
 #include "exceptions.h"
+#include "types.h"
 
 #include <iostream>
 #include <cassert>

@@ -16,6 +16,7 @@
 #include "sound.h"
 #include "texture_override.h" // TextureOverride
 #include "tool.h"
+#include "util/types.h"
 #include "util/pointabilities.h"
 #include "util/pointedthing.h"
 // irr includes
@@ -79,7 +80,7 @@ struct ItemDefinition
 	std::string wield_image; // If empty, inventory_image or mesh (only nodes) is used
 	std::string wield_overlay; // Overlay of wield_image.
 	std::string palette_image; // If specified, the item will be colorized based on this
-	video::SColor color; // The fallback color of the node.
+	irr::video::SColor color; // The fallback color of the node.
 	v3f wield_scale;
 
 	/*

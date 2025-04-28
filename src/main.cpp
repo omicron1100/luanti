@@ -30,10 +30,10 @@
 	#include "terminal_chat_console.h"
 #endif
 #if CHECK_CLIENT_BUILD()
-#include "gui/guiMainMenu.h"
+#include "client/gui/guiMainMenu.h"
 #include "client/clientlauncher.h"
-#include "gui/guiEngine.h"
-#include "gui/mainmenumanager.h"
+#include "client/gui/guiEngine.h"
+#include "client/gui/mainmenumanager.h"
 #endif
 
 // for version information only

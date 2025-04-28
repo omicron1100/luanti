@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: LGPL-2.1-or-later
 // Copyright (C) 2016 sfan5 <sfan5@live.de>
 #include "tileanimation.h"
+#include "util/types.h"
 #include "util/serialize.h"
 
 void TileAnimationParams::serialize(std::ostream &os, u16 protocol_ver) const

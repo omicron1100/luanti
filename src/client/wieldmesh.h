@@ -9,11 +9,11 @@
 #include "tile.h"
 #include <string>
 #include <vector>
+#include <memory>
 // irr includes
 #include <EMaterialTypes.h>
 #include <IMeshSceneNode.h>
 #include <SColor.h>
-#include <memory>
 #include <SMesh.h>
 
 namespace irr::scene

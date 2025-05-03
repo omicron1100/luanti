@@ -14,8 +14,14 @@
 #include <vector>
 #include <string>
 #include <string_view>
+#include "irrlichttypes.h"
+#include "irr_v2d.h"
+#include "irr_v3d.h"
+#include "irr_aabb3d.h"
+// irr includes
+#include <SColor.h>
 
-#include "irrlichttypes_bloated.h"
+namespace video = irr::video;
 
 extern "C" {
 #include <lua.h>

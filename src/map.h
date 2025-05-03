@@ -8,7 +8,10 @@
 #include <set>
 #include <map>
 
-#include "irrlichttypes_bloated.h"
+#include "irrlichttypes.h"
+#include "irr_v2d.h"
+#include "irr_v3d.h"
+#include "irr_aabb3d.h"
 #include "mapblock.h"
 #include "mapnode.h"
 #include "constants.h"
@@ -17,6 +20,8 @@
 #include "util/numeric.h"
 #include "nodetimer.h"
 #include "debug.h"
+
+namespace core = irr::core;
 
 class MapSector;
 class NodeMetadata;

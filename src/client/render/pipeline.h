@@ -3,13 +3,18 @@
 // Copyright (C) 2022 x2048, Dmitry Kostenko <codeforsmile@gmail.com>
 #pragma once
 
-#include "irrlichttypes_bloated.h"
-#include <IrrlichtDevice.h> // used in all render/*.cpp
-#include <IVideoDriver.h> // used in all render/*.cpp
-
+#include "irrlichttypes.h"
+#include "irr_v2d.h"
 #include <vector>
 #include <memory>
 #include <string>
+// irr includes
+#include <IrrlichtDevice.h> // used in all render/*.cpp
+#include <IVideoDriver.h> // used in all render/*.cpp
+#include <SColor.h>
+
+namespace core = irr::core;
+namespace video = irr::video;
 
 class RenderSource;
 class RenderTarget;

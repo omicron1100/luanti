@@ -4,12 +4,16 @@
 
 #pragma once
 
-#include "irr_ptr.h"
-#include "irrlichttypes_bloated.h"
-#include "rect.h"
+#include "irrlichttypes.h"
+#include "irr_v2d.h"
 #include "util/enum_string.h"
 #include <iostream>
 #include <unordered_map>
+// irr includes
+#include <irr_ptr.h>
+#include <rect.h>
+#include <IGUIStaticText.h>
+
 
 class ISimpleTextureSource;
 namespace irr::gui
@@ -20,6 +24,10 @@ namespace irr::video
 {
 	class ITexture;
 }
+
+namespace core = irr::core;
+namespace gui = irr::gui;
+namespace video = irr::video;
 
 enum TouchInteractionStyle : u8
 {

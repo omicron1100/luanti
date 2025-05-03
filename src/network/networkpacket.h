@@ -4,13 +4,18 @@
 
 #pragma once
 
-#include "util/pointer.h" // Buffer<T>
-#include "irrlichttypes_bloated.h"
+#include "irrlichttypes.h"
+#include "irr_v2d.h"
+#include "irr_v3d.h"
 #include "networkprotocol.h"
-#include <SColor.h>
+#include "util/pointer.h" // Buffer<T>
 #include <string>
 #include <string_view>
 #include <vector>
+// irr includes
+#include <SColor.h>
+
+namespace video = irr::video;
 
 class NetworkPacket
 {

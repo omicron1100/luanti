@@ -1,16 +1,16 @@
 // Luanti
 // SPDX-License-Identifier: LGPL-2.1-or-later
 // Copyright (C) 2013 celeron55, Perttu Ahola <celeron55@gmail.com>
-#include "common/c_content.h"
-#include "common/c_converter.h"
-#include "common/c_types.h"
+#include "c_content.h"
+#include "c_converter.h"
+#include "c_types.h"
+#include "c_internal.h"
 #include "nodedef.h"
 #include "object_properties.h"
 #include "collision.h"
 #include "cpp_api/s_node.h"
 #include "lua_api/l_object.h"
 #include "lua_api/l_item.h"
-#include "common/c_internal.h"
 #include "server.h"
 #include "log.h"
 #include "tool.h"
@@ -20,9 +20,10 @@
 #include "server/player_sao.h"
 #include "util/pointedthing.h"
 #include "debug.h" // For FATAL_ERROR
-#include <SColor.h>
 #include <json/json.h>
 #include "mapgen/treegen.h"
+
+using namespace irr;
 
 struct EnumString es_TileAnimationType[] =
 {

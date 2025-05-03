@@ -3,16 +3,17 @@
 // Copyright (C) 2024 grorp, Gregor Parzefall <grorp@posteo.de>
 
 #include "touchscreenlayout.h"
+
 #include "client/renderingengine.h"
 #include "client/texturesource.h"
 #include "convert_json.h"
 #include "gettext.h"
 #include "settings.h"
-#include <json/json.h>
-
-#include "IGUIFont.h"
-#include "IGUIStaticText.h"
 #include "util/enum_string.h"
+#include <json/json.h>
+// irr includes
+#include <IGUIFont.h>
+#include <IGUIStaticText.h>
 
 const struct EnumString es_TouchInteractionStyle[] =
 {

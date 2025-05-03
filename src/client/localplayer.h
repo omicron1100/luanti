@@ -5,10 +5,15 @@
 #pragma once
 
 #include "player.h"
+#include "irr_aabb3d.h"
 #include "environment.h"
 #include "constants.h"
 #include "lighting.h"
 #include <string>
+// irr includes
+#include <SColor.h>
+
+namespace video = irr::video;
 
 class Client;
 class Environment;

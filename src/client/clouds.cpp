@@ -2,9 +2,9 @@
 // SPDX-License-Identifier: LGPL-2.1-or-later
 // Copyright (C) 2010-2013 celeron55, Perttu Ahola <celeron55@gmail.com>
 
+#include "clouds.h"
 #include "client/renderingengine.h"
 #include "client/shader.h"
-#include "clouds.h"
 #include "constants.h"
 #include "debug.h"
 #include "irrlicht_changes/printing.h"
@@ -12,6 +12,8 @@
 #include "profiler.h"
 #include "settings.h"
 #include <cmath>
+
+using namespace irr;
 
 class Clouds;
 scene::ISceneManager *g_menucloudsmgr = nullptr;

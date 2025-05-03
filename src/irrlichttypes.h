@@ -7,7 +7,7 @@
 #include <cstdint>
 #include <irrTypes.h>
 
-using namespace irr;
+using namespace irr; // TODO: Remove using namespace irr from header files
 
 #define S8_MIN  INT8_MIN
 #define S16_MIN INT16_MIN

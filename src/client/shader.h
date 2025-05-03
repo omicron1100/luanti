@@ -5,12 +5,17 @@
 
 #pragma once
 
-#include "irrlichttypes_bloated.h"
-#include <IMaterialRendererServices.h>
+#include "irrlichttypes.h"
 #include <string>
 #include <map>
 #include <variant>
 #include "nodedef.h"
+// irr includes
+#include <SColor.h>
+#include <IMaterialRendererServices.h>
+
+namespace core = irr::core;
+namespace video = irr::video;
 
 /*
 	shader.{h,cpp}: Shader handling stuff.

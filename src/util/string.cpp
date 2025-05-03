@@ -308,7 +308,7 @@ u64 read_seed(const char *str)
 	return num;
 }
 
-static bool parseHexColorString(const std::string &value, video::SColor &color,
+static bool parseHexColorString(const std::string &value, irr::video::SColor &color,
 		unsigned char default_alpha)
 {
 	u8 components[] = {0x00, 0x00, 0x00, default_alpha}; // R,G,B,A
@@ -500,7 +500,7 @@ const static std::unordered_map<std::string, u32> s_named_colors = {
 	{"yellowgreen",          0x9acd32}
 };
 
-static bool parseNamedColorString(const std::string &value, video::SColor &color)
+static bool parseNamedColorString(const std::string &value, irr::video::SColor &color)
 {
 	std::string color_name;
 	std::string alpha_string;
@@ -551,12 +551,12 @@ static bool parseNamedColorString(const std::string &value, video::SColor &color
 		color_temp |= 0xff << 24; // Fully opaque
 	}
 
-	color = video::SColor(color_temp);
+	color = irr::video::SColor(color_temp);
 
 	return true;
 }
 
-bool parseColorString(const std::string &value, video::SColor &color, bool quiet,
+bool parseColorString(const std::string &value, irr::video::SColor &color, bool quiet,
 		unsigned char default_alpha)
 {
 	bool success;
@@ -572,7 +572,7 @@ bool parseColorString(const std::string &value, video::SColor &color, bool quiet
 	return success;
 }
 
-std::string encodeHexColorString(video::SColor color)
+std::string encodeHexColorString(irr::video::SColor color)
 {
 	std::string color_string = "#";
 	const char red = color.getRed();

@@ -3,13 +3,16 @@
 // Copyright (C) 2013 celeron55, Perttu Ahola <celeron55@gmail.com>
 
 #include "content_cso.h"
-#include <IBillboardSceneNode.h>
-#include <ISceneManager.h>
 #include "client/texturesource.h"
 #include "clientenvironment.h"
 #include "client.h"
 #include "map.h"
 #include "nodedef.h"
+// irr includes
+#include <IBillboardSceneNode.h>
+#include <ISceneManager.h>
+
+using namespace irr;
 
 class SmokePuffCSO: public ClientSimpleObject
 {

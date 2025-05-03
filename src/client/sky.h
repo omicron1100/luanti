@@ -4,7 +4,8 @@
 
 #pragma once
 
-#include "irrlichttypes_bloated.h"
+#include "irrlichttypes.h"
+#include "irr_aabb3d.h"
 #include <array>
 #include "camera.h" // CameraMode
 #include "skyparams.h"
@@ -12,6 +13,7 @@
 #include <ISceneNode.h>
 #include <CMeshBuffer.h>
 #include <irr_ptr.h>
+#include <SColor.h>
 
 #define SKY_MATERIAL_COUNT 12
 

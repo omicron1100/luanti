@@ -4,11 +4,9 @@
 
 #pragma once
 
-#include "irrlichttypes_bloated.h"
+#include "irrlichttypes.h"
+#include "irr_v3d.h"
 #include "config.h" // IS_CLIENT_BUILD
-#if IS_CLIENT_BUILD
-#include "irrString.h"
-#endif
 #include <cstdlib>
 #include <string>
 #include <string_view>
@@ -21,6 +19,11 @@
 #include <cwctype>
 #include <unordered_map>
 #include <optional>
+//irr includes
+#include <SColor.h>
+#if IS_CLIENT_BUILD
+#include <irrString.h>
+#endif
 
 class Translations;
 
@@ -88,9 +91,9 @@ size_t mystrlcpy(char *dst, const char *src, size_t size) noexcept;
 /// @brief turn string into a map seed. either directly if it's a number or by hashing it.
 u64 read_seed(const char *str);
 
-bool parseColorString(const std::string &value, video::SColor &color, bool quiet,
+bool parseColorString(const std::string &value, irr::video::SColor &color, bool quiet,
 		unsigned char default_alpha = 0xff);
-std::string encodeHexColorString(video::SColor color);
+std::string encodeHexColorString(irr::video::SColor color);
 
 /**
  * Converts a letter to lowercase, with safe handling of the char type and non-ASCII.

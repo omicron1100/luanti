@@ -8,4 +8,4 @@
 
 #include <aabbox3d.h>
 
-typedef core::aabbox3d<f32> aabb3f;
+typedef irr::core::aabbox3d<f32> aabb3f;

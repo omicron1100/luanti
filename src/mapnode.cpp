@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: LGPL-2.1-or-later
 // Copyright (C) 2013 celeron55, Perttu Ahola <celeron55@gmail.com>
 
-#include "irrlichttypes_bloated.h"
 #include "mapnode.h"
 #include "porting.h"
 #include "nodedef.h"
@@ -29,7 +28,7 @@ static const u8 rot_to_wallmounted[] = {
 	MapNode
 */
 
-void MapNode::getColor(const ContentFeatures &f, video::SColor *color) const
+void MapNode::getColor(const ContentFeatures &f, irr::video::SColor *color) const
 {
 	if (f.palette) {
 		*color = (*f.palette)[param2];

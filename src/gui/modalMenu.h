@@ -4,20 +4,27 @@
 
 #pragma once
 
-#include "IGUIElement.h"
-#include "irrlichttypes_bloated.h"
-#include "irr_ptr.h"
+#include "irrlichttypes.h"
+#include "irr_v2d.h"
 
 #include "util/string.h"
 #ifdef __ANDROID__
 	#include <porting_android.h>
 #endif
 
+// irr includes
+#include <irr_ptr.h>
+#include <IGUIElement.h>
+
+namespace core = irr::core;
+namespace gui = irr::gui;
+namespace video = irr::video;
+
 struct PointerAction {
 	v2s32 pos;
 	u64 time; // ms
 
-	static PointerAction fromEvent(const SEvent &event);
+	static PointerAction fromEvent(const irr::SEvent &event);
 	bool isRelated(PointerAction other);
 };
 
@@ -48,8 +55,8 @@ public:
 
 	virtual void regenerateGui(v2u32 screensize) = 0;
 	virtual void drawMenu() = 0;
-	virtual bool preprocessEvent(const SEvent &event);
-	virtual bool OnEvent(const SEvent &event) { return false; };
+	virtual bool preprocessEvent(const irr::SEvent &event);
+	virtual bool OnEvent(const irr::SEvent &event) { return false; };
 	virtual bool pausesGame() { return false; } // Used for pause menu
 #ifdef __ANDROID__
 	virtual void getAndroidUIInput() {};
@@ -89,7 +96,7 @@ private:
 	 * the mainmenu to prevent Minetest from closing unexpectedly.
 	 */
 	bool m_remap_click_outside;
-	bool remapClickOutside(const SEvent &event);
+	bool remapClickOutside(const irr::SEvent &event);
 	PointerAction m_last_click_outside{};
 
 	// This might be necessary to expose to the implementation if it

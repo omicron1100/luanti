@@ -4,12 +4,13 @@
 
 #pragma once
 
-#include "irrlichttypes_bloated.h"
+#include "irrlichttypes.h"
+#include "irr_v3d.h"
+#include "irr_aabb3d.h"
 #include "activeobject.h"
 #include <memory>
 #include <unordered_map>
 #include <unordered_set>
-
 
 class ClientEnvironment;
 class ITextureSource;
@@ -25,6 +26,8 @@ namespace irr::scene
 	class ISceneNode;
 	class ISceneManager;
 }
+
+namespace scene = irr::scene;
 
 class ClientActiveObject : public ActiveObject
 {

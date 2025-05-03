@@ -3,28 +3,30 @@
 // Copyright (C) 2013 celeron55, Perttu Ahola <celeron55@gmail.com>
 // Copyright (C) 2013 Kahrl <kahrl@gmx.net>
 
-#include <fstream>
-#include <iterator>
 #include "shader.h"
-#include "irr_ptr.h"
 #include "debug.h"
 #include "filesys.h"
 #include "util/container.h"
 #include "util/thread.h"
 #include "settings.h"
-#include <ICameraSceneNode.h>
-#include <IGPUProgrammingServices.h>
-#include <IMaterialRenderer.h>
-#include <IMaterialRendererServices.h>
-#include <IShaderConstantSetCallBack.h>
 #include "client/renderingengine.h"
 #include "gettext.h"
 #include "log.h"
 #include "gamedef.h"
 #include "client/tile.h"
 #include "config.h"
-
+#include <fstream>
+#include <iterator>
 #include <mt_opengl.h>
+// irr includes
+#include <irr_ptr.h>
+#include <ICameraSceneNode.h>
+#include <IGPUProgrammingServices.h>
+#include <IMaterialRenderer.h>
+#include <IMaterialRendererServices.h>
+#include <IShaderConstantSetCallBack.h>
+
+using namespace irr;
 
 /*
 	A cache from shader name to shader path

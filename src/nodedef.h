@@ -4,24 +4,27 @@
 
 #pragma once
 
-#include "irrlichttypes_bloated.h"
+#include "irr_aabb3d.h"
 #include <string>
 #include <iostream>
 #include <memory> // shared_ptr
-#include <map>
 #include "mapnode.h"
 #include "nameidmapping.h"
-#if CHECK_CLIENT_BUILD()
-#include "client/tile.h"
-#include <IMeshManipulator.h>
-class Client;
-#endif
 #include "itemgroup.h"
 #include "sound.h" // SoundSpec
 #include "constants.h" // BS
 #include "texture_override.h" // TextureOverride
 #include "tileanimation.h"
 #include "util/pointabilities.h"
+#if CHECK_CLIENT_BUILD()
+#include "client/tile.h"
+#include <IMeshManipulator.h>
+class Client;
+#endif
+
+namespace core = irr::core;
+namespace scene = irr::scene;
+namespace video = irr::video;
 
 class IItemDefManager;
 class ITextureSource;

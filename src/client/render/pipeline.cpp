@@ -5,12 +5,14 @@
 #include "pipeline.h"
 #include "client/client.h"
 #include "client/hud.h"
-#include "IRenderTarget.h"
-#include "SColor.h"
 
 #include <vector>
 #include <memory>
+// irr includes
+#include <IRenderTarget.h>
+#include <SColor.h>
 
+using namespace irr;
 
 TextureBuffer::~TextureBuffer()
 {

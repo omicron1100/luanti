@@ -3,17 +3,20 @@
 // Copyright (C) 2013 celeron55, Perttu Ahola <celeron55@gmail.com>
 // Copyright (C) 2018 stujones11, Stuart Jones <stujones111@gmail.com>
 
-#include <cstdlib>
-#include <IEventReceiver.h>
-#include <IGUIComboBox.h>
-#include <IGUIEditBox.h>
-#include "client/renderingengine.h"
 #include "modalMenu.h"
+#include <cstdlib>
+#include "client/renderingengine.h"
 #include "gettext.h"
 #include "gui/guiInventoryList.h"
 #include "porting.h"
 #include "settings.h"
 #include "touchcontrols.h"
+// irr includes
+#include <IEventReceiver.h>
+#include <IGUIComboBox.h>
+#include <IGUIEditBox.h>
+
+using namespace irr;
 
 PointerAction PointerAction::fromEvent(const SEvent &event) {
 	switch (event.EventType) {

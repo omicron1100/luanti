@@ -4,11 +4,19 @@
 
 #pragma once
 
-#include "irrlichttypes_bloated.h"
+#include "irrlichttypes.h"
+#include "irr_v3d.h"
+#include "irr_aabb3d.h"
 #include "map.h"
 #include "camera.h"
 #include <set>
 #include <map>
+// irr includes
+#include <IMeshBuffer.h>
+#include <IVideoDriver.h>
+
+namespace scene = irr::scene;
+namespace video = irr::video;
 
 struct MapDrawControl
 {

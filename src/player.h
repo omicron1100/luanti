@@ -4,7 +4,9 @@
 
 #pragma once
 
-#include "irrlichttypes_bloated.h"
+#include "irrlichttypes.h"
+#include "irr_v2d.h"
+#include "irr_v3d.h"
 #include "inventory.h"
 #include "constants.h"
 #include "util/basic_macros.h"

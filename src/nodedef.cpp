@@ -29,7 +29,19 @@
 #include "mapnode.h"
 #include <fstream> // Used in applyTextureOverrides()
 #include <algorithm>
-#include <cmath>
+#if CHECK_CLIENT_BUILD()
+#include "client/mesh.h"
+#include "client/shader.h"
+#include "client/client.h"
+#include "client/renderingengine.h"
+#include "client/texturesource.h"
+#include "client/tile.h"
+// irr includes
+#include <IMeshManipulator.h>
+#include <SkinnedMesh.h>
+#endif
+
+using namespace irr;
 
 /*
 	NodeBox

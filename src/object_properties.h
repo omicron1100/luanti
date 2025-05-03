@@ -4,13 +4,19 @@
 
 #pragma once
 
-#include <optional>
-#include <string>
-#include "irrlichttypes_bloated.h"
-#include <iostream>
-#include <vector>
+#include "irr_v2d.h"
+#include "irr_v3d.h"
+#include "irr_aabb3d.h"
 #include "util/pointabilities.h"
 #include "mapnode.h"
+#include <optional>
+#include <string>
+#include <iostream>
+#include <vector>
+// irr includes
+#include <SColor.h>
+
+namespace video = irr::video;
 
 struct EnumString;
 

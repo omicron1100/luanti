@@ -4,11 +4,14 @@
 
 #pragma once
 
-#include "irrlichttypes_bloated.h"
+#include "irrlichttypes.h"
+#include "irr_v2d.h"
+#include "irr_v3d.h"
+#include "irr_aabb3d.h"
 #include "constants.h"
 #include "skyparams.h"
 #include <iostream>
-//irr includes
+// irr includes
 #include <irr_ptr.h>
 #include <ISceneNode.h>
 #include <SMaterial.h>

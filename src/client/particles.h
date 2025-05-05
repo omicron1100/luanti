@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "irrlichttypes_bloated.h"
+#include "irrlichttypes.h"
 
 #include "../particles.h"
 #include <mutex>
@@ -12,11 +12,13 @@
 #include <vector>
 #include <unordered_map>
 // irr includes
+#include <matrix4.h>
 #include <irr_ptr.h>
 #include <ISceneNode.h>
 #include <S3DVertex.h>
 #include <CMeshBuffer.h>
 
+namespace core = irr::core;
 namespace scene = irr::scene;
 namespace video = irr::video;
 

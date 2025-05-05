@@ -4,7 +4,6 @@
 
 #include "collision.h"
 #include <cmath>
-#include "irr_aabb3d.h"
 #include "mapblock.h"
 #include "map.h"
 #include "nodedef.h"

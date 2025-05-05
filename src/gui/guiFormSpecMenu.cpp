@@ -16,14 +16,6 @@
 #include "client/keycode.h"
 #include "gui/guiTable.h"
 #include "util/strfnd.h"
-#include <IGUIButton.h>
-#include <IGUICheckBox.h>
-#include <IGUIComboBox.h>
-#include <IGUIEditBox.h>
-#include <IGUIFont.h>
-#include <IGUITabControl.h>
-#include <IGUIImage.h>
-#include <IAnimatedMeshSceneNode.h>
 #include "client/renderingengine.h"
 #include "client/joystick_controller.h"
 #include "log.h"
@@ -56,6 +48,18 @@
 #include "guiScrollContainer.h"
 #include "guiHyperText.h"
 #include "guiScene.h"
+// irr includes
+#include <IGUIButton.h>
+#include <IGUICheckBox.h>
+#include <IGUIComboBox.h>
+#include <IGUIEditBox.h>
+#include <IGUIFont.h>
+#include <IGUITabControl.h>
+#include <IGUIImage.h>
+#include <IAnimatedMeshSceneNode.h>
+
+using namespace irr::core;
+using namespace irr::gui;
 
 #define MY_CHECKPOS(a,b)													\
 	if (v_pos.size() != 2) {												\

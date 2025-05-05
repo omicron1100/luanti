@@ -8,6 +8,8 @@
 #include "util/serialize.h"
 #include "networkprotocol.h"
 
+using namespace irr;
+
 void NetworkPacket::checkReadOffset(u32 from_offset, u32 field_size) const
 {
 	if (from_offset + field_size > m_datasize) {

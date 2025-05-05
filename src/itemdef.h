@@ -5,7 +5,9 @@
 
 #pragma once
 
-#include "irrlichttypes_bloated.h"
+#include "irrlichttypes.h"
+#include "irr_v3d.h"
+
 #include <string>
 #include <iostream>
 #include <optional>
@@ -16,6 +18,10 @@
 #include "tool.h"
 #include "util/pointabilities.h"
 #include "util/pointedthing.h"
+// irr includes
+#include <SColor.h>
+
+namespace video = irr::video;
 
 struct ToolCapabilities;
 

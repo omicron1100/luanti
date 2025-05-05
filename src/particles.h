@@ -9,7 +9,7 @@
 #include <vector>
 #include <type_traits>
 #include "irrlicht_changes/printing.h"
-#include "irrlichttypes_bloated.h"
+#include "irrlichttypes.h"
 #include "tileanimation.h"
 #include "mapnode.h"
 #include "util/serialize.h"

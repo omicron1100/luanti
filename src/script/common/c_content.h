@@ -20,7 +20,7 @@ extern "C" {
 #include <vector>
 #include <array>
 
-#include "irrlichttypes_bloated.h"
+#include "irrlichttypes.h"
 #include "util/string.h"
 #include "itemgroup.h"
 #include "itemdef.h"
@@ -29,6 +29,10 @@ extern "C" {
 // prior to the src/hud.h, which is not good on server only build
 #include "../../hud.h"
 #include "content/mods.h"
+//irr includes
+#include <SColor.h>
+
+namespace video = irr::video;
 
 namespace Json { class Value; }
 

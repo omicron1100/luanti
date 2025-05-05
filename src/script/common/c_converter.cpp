@@ -7,16 +7,16 @@ extern "C" {
 #include <lauxlib.h>
 }
 
+#include "c_converter.h"
+#include "c_internal.h"
+#include "c_types.h"
 #include "util/numeric.h"
 #include "util/serialize.h"
 #include "util/string.h"
 #include "log.h"
-#include "common/c_converter.h"
-#include "common/c_internal.h"
 #include "constants.h"
 #include <set>
 #include <cmath>
-#include "common/c_types.h"
 
 
 #define CHECK_TYPE(index, name, type) do { \

@@ -4,7 +4,9 @@
 
 #pragma once
 
-#include "irrlichttypes_bloated.h"
+#include "irrlichttypes.h"
+#include "irr_v2d.h"
+#include "irr_v3d.h"
 #include "clientsimpleobject.h"
 
 namespace irr::scene
@@ -12,5 +14,5 @@ namespace irr::scene
 	class ISceneManager;
 }
 
-ClientSimpleObject* createSmokePuff(scene::ISceneManager *smgr,
+ClientSimpleObject* createSmokePuff(irr::scene::ISceneManager *smgr,
 		ClientEnvironment *env, v3f pos, v2f size);

@@ -21,6 +21,8 @@
 
 #include <queue>
 
+using namespace irr;
+
 namespace {
 	// data structure that groups block meshes by material
 	struct MeshBufListMaps

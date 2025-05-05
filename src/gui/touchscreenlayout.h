@@ -14,9 +14,6 @@
 #include <rect.h>
 #include <IGUIStaticText.h>
 
-namespace core = irr::core;
-namespace gui = irr::gui;
-namespace video = irr::video;
 
 class ISimpleTextureSource;
 namespace irr::gui
@@ -27,6 +24,10 @@ namespace irr::video
 {
 	class ITexture;
 }
+
+namespace core = irr::core;
+namespace gui = irr::gui;
+namespace video = irr::video;
 
 enum TouchInteractionStyle : u8
 {

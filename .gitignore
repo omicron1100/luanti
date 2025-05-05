@@ -76,7 +76,6 @@ AppDir
 /mod_data
 
 ## Configuration/log files
-luanti.conf
 minetest.conf
 debug.txt
 debug.txt.1
@@ -109,9 +108,7 @@ src/cmake_config_githash.h
 .directory
 *.cbp
 *.layout
-*.lib
 *.o
-*.obj
 *.a
 *.dump
 *.dmp
@@ -131,19 +128,10 @@ CMakeDoxy*
 compile_commands.json
 *.apk
 *.zip
-*.dir/
-x64/
-irr/src/Debug/
-irr/src/Release/
-lib/*/Debug/
-lib/*/Release/
 # Visual Studio
 *.vcxproj*
 *.sln
 .vs/
-# vcpkg
-vcpkg-manifest-install.log
-vcpkg_installed/
 
 # Old irrlichtmt. Still ignored to make bisecting easier.
 lib/irrlichtmt

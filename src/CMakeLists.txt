@@ -524,7 +524,6 @@ endif()
 # Client sources
 if (BUILD_CLIENT)
 	add_subdirectory(client)
-	add_subdirectory(gui)
 	add_subdirectory(irrlicht_changes)
 endif(BUILD_CLIENT)
 

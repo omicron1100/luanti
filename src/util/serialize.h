@@ -5,6 +5,7 @@
 #pragma once
 
 #include "types.h"
+#include "irr_v2d.h"
 #include "exceptions.h" // for SerializationError
 #include "ieee_float.h"
 
@@ -17,6 +18,9 @@
 //irr includes
 #include <irrMath.h> // clamp
 #include <SColor.h>
+
+namespace core = irr::core;
+namespace video = irr::video;
 
 /* make sure BYTE_ORDER macros are available */
 #ifdef _WIN32
@@ -209,9 +213,9 @@ inline f32 readF32(const u8 *data)
 	throw SerializationError("readF32: Unreachable code");
 }
 
-inline irr::video::SColor readARGB8(const u8 *data)
+inline video::SColor readARGB8(const u8 *data)
 {
-	irr::video::SColor p(readU32(data));
+	video::SColor p(readU32(data));
 	return p;
 }
 
@@ -325,7 +329,7 @@ inline void writeF32(u8 *data, f32 i)
 	throw SerializationError("writeF32: Unreachable code");
 }
 
-inline void writeARGB8(u8 *data, irr::video::SColor p)
+inline void writeARGB8(u8 *data, video::SColor p)
 {
 	writeU32(data, p.color);
 }
@@ -413,7 +417,7 @@ MAKE_STREAM_READ_FXN(v3s32, V3S32,   12);
 MAKE_STREAM_READ_FXN(v3f,   V3F1000, 12);
 MAKE_STREAM_READ_FXN(v2f,   V2F32,    8);
 MAKE_STREAM_READ_FXN(v3f,   V3F32,   12);
-MAKE_STREAM_READ_FXN(irr::video::SColor, ARGB8, 4);
+MAKE_STREAM_READ_FXN(video::SColor, ARGB8, 4);
 
 MAKE_STREAM_WRITE_FXN(u8,    U8,       1);
 MAKE_STREAM_WRITE_FXN(u16,   U16,      2);
@@ -432,7 +436,7 @@ MAKE_STREAM_WRITE_FXN(v3s32, V3S32,   12);
 MAKE_STREAM_WRITE_FXN(v3f,   V3F1000, 12);
 MAKE_STREAM_WRITE_FXN(v2f,   V2F32,    8);
 MAKE_STREAM_WRITE_FXN(v3f,   V3F32,   12);
-MAKE_STREAM_WRITE_FXN(irr::video::SColor, ARGB8, 4);
+MAKE_STREAM_WRITE_FXN(video::SColor, ARGB8, 4);
 
 ////
 //// More serialization stuff
@@ -440,7 +444,7 @@ MAKE_STREAM_WRITE_FXN(irr::video::SColor, ARGB8, 4);
 
 [[nodiscard]] inline float clampToF1000(float v)
 {
-	return irr::core::clamp(v, F1000_MIN, F1000_MAX);
+	return core::clamp(v, F1000_MIN, F1000_MAX);
 }
 
 [[nodiscard]] inline v3f clampToF1000(v3f v)

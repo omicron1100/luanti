@@ -4,8 +4,6 @@
 
 #pragma once
 
-#include "SColor.h"
-#include "SMaterialLayer.h"
 #include "nodedef.h"
 // irr includes
 #include <SColor.h>
@@ -24,7 +22,7 @@ namespace irr {
 	}
 }
 
-using namespace irr;
+using namespace irr; // TODO: remove "using namespace" from headers
 
 /*!
  * Applies shading to a color based on the surface's

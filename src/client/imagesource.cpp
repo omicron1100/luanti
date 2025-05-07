@@ -10,11 +10,13 @@
 #include "renderingengine.h"
 #include "settings.h"
 #include "texturepaths.h"
-#include "irrlicht_changes/printing.h"
 #include "util/base64.h"
 #include "util/numeric.h"
 #include "util/strfnd.h"
+// irr includes
+#include <printing.h>
 
+using namespace irr;
 
 ////////////////////////////////
 // SourceImageCache Functions //

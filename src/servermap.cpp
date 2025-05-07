@@ -25,7 +25,7 @@
 #include "database/database-dummy.h"
 #include "database/database-sqlite3.h"
 #include "script/scripting_server.h"
-#include "irrlicht_changes/printing.h"
+#include "util/metricsbackend.h"
 #if USE_LEVELDB
 #include "database/database-leveldb.h"
 #endif
@@ -35,6 +35,8 @@
 #if USE_POSTGRESQL
 #include "database/database-postgresql.h"
 #endif
+// irr includes
+#include <printing.h>
 
 /*
 	Helpers

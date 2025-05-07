@@ -12,7 +12,6 @@
 #include "config.h"
 #include "constants.h"
 #include "environment.h"
-#include "irrlicht_changes/printing.h"
 #include "filesys.h"
 #include "log.h"
 #include "servermap.h"
@@ -29,6 +28,8 @@
 #include "server.h"
 #include "settings.h"
 #include "voxel.h"
+// irr includes
+#include <printing.h>
 
 EmergeParams::~EmergeParams()
 {

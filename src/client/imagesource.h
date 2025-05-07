@@ -4,12 +4,15 @@
 
 #pragma once
 
-#include <IImage.h>
 #include <unordered_map>
 #include <set>
 #include <string>
+// irr includes
+#include <IImage.h>
 
-using namespace irr;
+namespace video = irr::video;
+
+using namespace irr; // TODO: Remove "using namespace" from header files
 
 // This file is only used for internal generation of images.
 // Use texturesource.h to handle textures.

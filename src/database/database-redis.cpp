@@ -11,11 +11,12 @@
 #include "settings.h"
 #include "log.h"
 #include "exceptions.h"
-#include "irrlicht_changes/printing.h"
 #include "util/string.h"
 
 #include <hiredis.h>
 #include <cassert>
+// irr includes
+#include <printing.h>
 
 /*
  * Redis is not a good fit for Minetest and only still supported for legacy as

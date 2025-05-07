@@ -6,6 +6,7 @@
 
 #include <vector>
 #include "irr_v3d.h"
+#include "irr_aabb3d.h"
 #include "mapnode.h"
 #include "exceptions.h"
 #include "constants.h"

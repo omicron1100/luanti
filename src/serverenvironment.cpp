@@ -6,7 +6,6 @@
 #include <stack>
 #include <utility>
 #include "serverenvironment.h"
-#include "irr_aabb3d.h"
 #include "settings.h"
 #include "log.h"
 #include "mapblock.h"
@@ -35,9 +34,10 @@
 #if USE_LEVELDB
 #include "database/database-leveldb.h"
 #endif
-#include "irrlicht_changes/printing.h"
 #include "server/luaentity_sao.h"
 #include "server/player_sao.h"
+// irr includes
+#include <printing.h>
 
 // A number that is much smaller than the timeout for particle spawners should/could ever be
 #define PARTICLE_SPAWNER_NO_EXPIRY -1024.f

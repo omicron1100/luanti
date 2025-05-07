@@ -12,7 +12,8 @@
 #include "mapnode.h"
 #include <set>
 #include <list>
-#include "irrlicht_changes/printing.h"
+// irr includes
+#include <printing.h>
 
 class NodeDefManager;
 

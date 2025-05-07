@@ -7,6 +7,7 @@
 #include <set>
 #include <utility>
 
+#include "irr_aabb3d.h"
 #include "activeobject.h"
 #include "environment.h"
 #include "servermap.h"
@@ -15,6 +16,8 @@
 #include "server/blockmodifier.h"
 #include "util/numeric.h"
 #include "util/metricsbackend.h"
+
+namespace core = irr::core;
 
 class IGameDef;
 struct GameParams;

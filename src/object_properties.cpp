@@ -3,15 +3,18 @@
 // Copyright (C) 2013 celeron55, Perttu Ahola <celeron55@gmail.com>
 
 #include "object_properties.h"
-#include "irrlicht_changes/printing.h"
 #include "exceptions.h"
 #include "log.h"
 #include "util/serialize.h"
 #include "util/enum_string.h"
 #include <sstream>
 #include <tuple>
+// irr includes
+#include <printing.h>
 
-static const irr::video::SColor NULL_BGCOLOR{0, 1, 1, 1};
+using namespace irr;
+
+static const video::SColor NULL_BGCOLOR{0, 1, 1, 1};
 
 const struct EnumString es_ObjectVisual[] =
 {
@@ -48,7 +51,7 @@ std::string ObjectProperties::dump() const
 	}
 	os << "]";
 	os << ", colors=[";
-	for (const irr::video::SColor &color : colors) {
+	for (const video::SColor &color : colors) {
 		os << "\"" << color.getAlpha() << "," << color.getRed() << ","
 			<< color.getGreen() << "," << color.getBlue() << "\" ";
 	}
@@ -166,7 +169,7 @@ void ObjectProperties::serialize(std::ostream &os) const
 	writeF32(os, automatic_rotate);
 	os << serializeString16(mesh);
 	writeU16(os, colors.size());
-	for (irr::video::SColor color : colors) {
+	for (video::SColor color : colors) {
 		writeARGB8(os, color);
 	}
 	writeU8(os, collideWithObjects);
@@ -192,7 +195,7 @@ void ObjectProperties::serialize(std::ostream &os) const
 	if (!nametag_bgcolor)
 		writeARGB8(os, NULL_BGCOLOR);
 	else if (nametag_bgcolor.value().getAlpha() == 0)
-		writeARGB8(os, irr::video::SColor(0, 0, 0, 0));
+		writeARGB8(os, video::SColor(0, 0, 0, 0));
 	else
 		writeARGB8(os, nametag_bgcolor.value());
 

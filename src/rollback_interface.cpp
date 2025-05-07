@@ -15,8 +15,9 @@
 #include "log.h"
 #include "inventorymanager.h"
 #include "inventory.h"
-#include "irrlicht_changes/printing.h"
 #include "mapblock.h"
+// irr includes
+#include <printing.h>
 
 
 RollbackNode::RollbackNode(Map *map, v3s16 p, IGameDef *gamedef)

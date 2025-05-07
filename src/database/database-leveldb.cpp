@@ -12,10 +12,11 @@
 #include "filesys.h"
 #include "exceptions.h"
 #include "remoteplayer.h"
-#include "irrlicht_changes/printing.h"
 #include "server/player_sao.h"
 #include "util/serialize.h"
 #include "util/string.h"
+// irr includes
+#include <printing.h>
 
 #include "leveldb/db.h"
 

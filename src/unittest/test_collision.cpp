@@ -2,12 +2,14 @@
 // SPDX-License-Identifier: LGPL-2.1-or-later
 // Copyright (C) 2013 celeron55, Perttu Ahola <celeron55@gmail.com>
 
+#include "collision.h"
 #include "test.h"
 #include "dummymap.h"
 #include "environment.h"
-#include "irrlicht_changes/printing.h"
+// irr includes
+#include <printing.h>
 
-#include "collision.h"
+using namespace irr;
 
 class TestCollision : public TestBase {
 public:

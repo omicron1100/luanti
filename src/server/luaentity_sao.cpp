@@ -7,11 +7,12 @@
 #include "collision.h"
 #include "constants.h"
 #include "inventory.h"
-#include "irrlicht_changes/printing.h"
 #include "player_sao.h"
 #include "scripting_server.h"
 #include "server.h"
 #include "serverenvironment.h"
+// irr includes
+#include <printing.h>
 
 LuaEntitySAO::LuaEntitySAO(ServerEnvironment *env, v3f pos, const std::string &data)
 	: UnitSAO(env, pos)

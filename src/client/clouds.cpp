@@ -7,11 +7,12 @@
 #include "client/shader.h"
 #include "constants.h"
 #include "debug.h"
-#include "irrlicht_changes/printing.h"
 #include "noise.h"
 #include "profiler.h"
 #include "settings.h"
 #include <cmath>
+// irr includes
+#include <printing.h>
 
 using namespace irr;
 

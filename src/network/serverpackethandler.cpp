@@ -16,7 +16,6 @@
 #include "settings.h"
 #include "tool.h"
 #include "version.h"
-#include "irrlicht_changes/printing.h"
 #include "network/connection.h"
 #include "network/networkpacket.h"
 #include "network/networkprotocol.h"
@@ -31,6 +30,8 @@
 #include "clientdynamicinfo.h"
 
 #include <algorithm>
+// irr includes
+#include <printing.h>
 
 void Server::handleCommand_Deprecated(NetworkPacket* pkt)
 {

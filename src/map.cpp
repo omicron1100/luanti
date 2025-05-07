@@ -16,7 +16,8 @@
 #include "util/directiontables.h"
 #include "rollback_interface.h"
 #include "environment.h"
-#include "irrlicht_changes/printing.h"
+// irr includes
+#include <printing.h>
 
 /*
 	Map

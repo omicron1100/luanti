@@ -7,8 +7,11 @@
 
 #include "object_properties.h"
 #include "serveractiveobject.h"
-#include <quaternion.h>
 #include "util/numeric.h"
+// irr includes
+#include <quaternion.h>
+
+namespace core = irr::core;
 
 class UnitSAO : public ServerActiveObject
 {

@@ -11,10 +11,11 @@
 #include "porting.h"
 #include "util/string.h"
 #include "remoteplayer.h"
-#include "irrlicht_changes/printing.h"
 #include "server/player_sao.h"
 
 #include <cassert>
+// irr includes
+#include <printing.h>
 
 // When to print messages when the database is being held locked by another process
 // Note: I've seen occasional delays of over 250ms while running minetestmapper.

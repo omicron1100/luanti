@@ -10,7 +10,6 @@
 #include "nodedef.h"
 #include "nodemetadata.h"
 #include "gamedef.h"
-#include "irrlicht_changes/printing.h"
 #include "log.h"
 #include "nameidmapping.h"
 #include "content_mapnode.h"  // For legacy name-id mapping
@@ -23,6 +22,8 @@
 #include "util/string.h"
 #include "util/serialize.h"
 #include "util/basic_macros.h"
+// irr includes
+#include <printing.h>
 
 // Like a std::unordered_map<content_t, content_t>, but faster.
 //

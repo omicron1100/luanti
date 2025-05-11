@@ -5,10 +5,14 @@
 #pragma once
 
 #include <array>
+#include "irrlichttypes.h"
+// irr includes
 #include <IGUIElement.h>
 #include <IGUIEnvironment.h>
 
-using namespace irr;
+namespace core = irr::core;
+namespace gui = irr::gui;
+namespace video = irr::video;
 
 class GUIBox : public gui::IGUIElement
 {

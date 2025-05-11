@@ -3,11 +3,12 @@
 
 #include "catch.h"
 #include "catch_amalgamated.hpp"
-#include "irrMath.h"
-#include "matrix4.h"
-#include "irr_v3d.h"
+#include <irrMath.h>
+#include <matrix4.h>
+#include <irr_v3d.h>
 
-using matrix4 = core::matrix4;
+using namespace irr;
+using matrix4 = irr::core::matrix4;
 
 static bool matrix_equals(const matrix4 &a, const matrix4 &b) {
 	return a.equals(b, 0.00001f);

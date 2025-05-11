@@ -3,10 +3,10 @@
 
 #include "catch.h"
 #include "catch_amalgamated.hpp"
-#include "irrMath.h"
-#include "matrix4.h"
 #include "irr_v3d.h"
-#include "quaternion.h"
+#include <quaternion.h>
+#include <irrMath.h>
+#include <matrix4.h>
 #include <functional>
 
 // Irrlicht provides three different representations of rotations:
@@ -14,6 +14,8 @@
 // - Quaternions;
 // - Rotation matrices.
 // These tests ensure that converting between these representations is rotation-preserving.
+
+using namespace irr;
 
 using matrix4 = core::matrix4;
 using quaternion = core::quaternion;

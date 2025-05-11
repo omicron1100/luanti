@@ -8,6 +8,8 @@
 #include "client/shadows/dynamicshadowsrender.h"
 #include "settings.h"
 
+using namespace irr;
+
 RenderingCore::RenderingCore(IrrlichtDevice *_device, Client *_client, Hud *_hud,
 		ShadowRenderer *_shadow_renderer, RenderPipeline *_pipeline, v2f _virtual_size_scale)
 	: device(_device), client(_client), hud(_hud), shadow_renderer(_shadow_renderer),

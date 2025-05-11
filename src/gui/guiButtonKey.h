@@ -8,7 +8,8 @@
 #include "util/string.h"
 #include "gettext.h"
 
-using namespace irr;
+namespace core = irr::core;
+namespace gui = irr::gui;
 
 class GUIButtonKey : public GUIButton
 {
@@ -40,7 +41,7 @@ public:
 			const wchar_t *tooltiptext = L"");
 
 	//! Called if an event happened
-	virtual bool OnEvent(const SEvent &event) override;
+	virtual bool OnEvent(const irr::SEvent &event) override;
 
 private:
 	void sendKey();

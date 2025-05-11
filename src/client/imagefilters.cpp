@@ -8,7 +8,10 @@
 #include <cassert>
 #include <vector>
 #include <algorithm>
+// irr includes
 #include <IVideoDriver.h>
+
+using namespace irr;
 
 // Simple 2D bitmap class with just the functionality needed here
 class Bitmap {

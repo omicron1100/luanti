@@ -30,14 +30,14 @@ EnrichedString::EnrichedString()
 }
 
 EnrichedString::EnrichedString(std::wstring_view string,
-		const std::vector<SColor> &colors)
+		const std::vector<video::SColor> &colors)
 {
 	clear();
 	m_string = string;
 	m_colors = colors;
 }
 
-EnrichedString::EnrichedString(std::wstring_view s, const SColor &color)
+EnrichedString::EnrichedString(std::wstring_view s, const video::SColor &color)
 {
 	clear();
 	addAtEnd(translate_string(s), color);
@@ -49,8 +49,8 @@ void EnrichedString::clear()
 	m_colors.clear();
 	m_has_background = false;
 	m_default_length = 0;
-	m_default_color = irr::video::SColor(255, 255, 255, 255);
-	m_background = irr::video::SColor(0, 0, 0, 0);
+	m_default_color = video::SColor(255, 255, 255, 255);
+	m_background = video::SColor(0, 0, 0, 0);
 }
 
 EnrichedString &EnrichedString::operator=(std::wstring_view str)
@@ -60,9 +60,9 @@ EnrichedString &EnrichedString::operator=(std::wstring_view str)
 	return *this;
 }
 
-void EnrichedString::addAtEnd(std::wstring_view s, SColor initial_color)
+void EnrichedString::addAtEnd(std::wstring_view s, video::SColor initial_color)
 {
-	SColor color(initial_color);
+	video::SColor color(initial_color);
 	bool use_default = (m_default_length == m_string.size() &&
 		color == m_default_color);
 
@@ -186,7 +186,7 @@ EnrichedString EnrichedString::substr(size_t pos, size_t len) const
 
 	EnrichedString str(
 		m_string.substr(pos, len),
-		std::vector<SColor>(m_colors.begin() + pos, m_colors.begin() + pos + len)
+		std::vector<video::SColor>(m_colors.begin() + pos, m_colors.begin() + pos + len)
 	);
 
 	str.m_has_background = m_has_background;
@@ -198,7 +198,7 @@ EnrichedString EnrichedString::substr(size_t pos, size_t len) const
 	return str;
 }
 
-const std::vector<SColor> &EnrichedString::getColors() const
+const std::vector<video::SColor> &EnrichedString::getColors() const
 {
 	return m_colors;
 }

@@ -11,6 +11,10 @@
 
 #include "guiScrollBar.h"
 
+namespace core = irr::core;
+namespace gui = irr::gui;
+namespace video = irr::video;
+
 class ISimpleTextureSource;
 
 /*
@@ -125,7 +129,7 @@ public:
 	virtual void draw();
 
 	/* Irrlicht event handler */
-	virtual bool OnEvent(const SEvent &event);
+	virtual bool OnEvent(const irr::SEvent &event);
 
 protected:
 	enum ColumnType {

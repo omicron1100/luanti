@@ -14,9 +14,12 @@
 #include "client/client.h"
 #include "client/clientmap.h"
 #include "profiler.h"
-#include "IGPUProgrammingServices.h"
-#include "IMaterialRenderer.h"
-#include "IVideoDriver.h"
+// irr includes
+#include <IGPUProgrammingServices.h>
+#include <IMaterialRenderer.h>
+#include <IVideoDriver.h>
+
+using namespace irr;
 
 ShadowRenderer::ShadowRenderer(IrrlichtDevice *device, Client *client) :
 		m_smgr(device->getSceneManager()), m_driver(device->getVideoDriver()),

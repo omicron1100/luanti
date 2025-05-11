@@ -10,6 +10,7 @@
 #include <unordered_set>
 
 #include "irrlichttypes.h"
+#include "irr_v2d.h"
 #include "irr_ptr.h"
 #include "inventory.h"
 #include "inventorymanager.h"
@@ -112,7 +113,7 @@ class GUIFormSpecMenu : public GUIModalMenu
 
 		FieldSpec(const std::string &name, const std::wstring &label,
 				const std::wstring &default_text, s32 id, int priority = 0,
-				gui::ECURSOR_ICON cursor_icon = ECI_NORMAL) :
+				gui::ECURSOR_ICON cursor_icon = gui::ECI_NORMAL) :
 			fname(name),
 			flabel(label),
 			fdefault(unescape_enriched(translate_string(default_text))),
@@ -275,8 +276,8 @@ public:
 	s16 getNextInventoryRing(const InventoryLocation &inventoryloc, const std::string &listname);
 
 	void acceptInput(FormspecQuitMode quitmode=quit_mode_no);
-	bool preprocessEvent(const SEvent& event);
-	bool OnEvent(const SEvent& event);
+	bool preprocessEvent(const irr::SEvent& event);
+	bool OnEvent(const irr::SEvent& event);
 	bool doPause;
 	bool pausesGame() { return doPause; }
 

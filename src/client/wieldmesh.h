@@ -16,6 +16,9 @@
 #include <SColor.h>
 #include <SMesh.h>
 
+namespace scene = irr::scene;
+namespace video = irr::video;
+
 namespace irr::scene
 {
 	class ISceneManager;
@@ -23,10 +26,6 @@ namespace irr::scene
 	struct SMesh;
 }
 
-namespace scene = irr::scene;
-namespace video = irr::video;
-
-using namespace irr; // TODO: remove "using namespace irr" from headers
 
 struct ItemStack;
 class Client;

@@ -4,6 +4,8 @@
 
 #include "guiScrollContainer.h"
 
+using namespace irr;
+
 GUIScrollContainer::GUIScrollContainer(gui::IGUIEnvironment *env,
 		gui::IGUIElement *parent, s32 id, const core::rect<s32> &rectangle,
 		const std::string &orientation, f32 scrollfactor) :

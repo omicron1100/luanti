@@ -8,11 +8,13 @@
 #include <list>
 #include <unordered_map>
 #include <string>
+#include "irr_v3d.h"
+// irr includes
 #include <IGUIElement.h>
 #include <IGUIEnvironment.h>
-#include "irr_v3d.h"
 
-using namespace irr;
+namespace core = irr::core;
+namespace gui = irr::gui;
 
 class ISimpleTextureSource;
 class Client;
@@ -200,7 +202,7 @@ public:
 
 	core::dimension2du getTextDimension();
 
-	bool OnEvent(const SEvent &event);
+	bool OnEvent(const irr::SEvent &event);
 
 protected:
 	// GUI members

@@ -23,15 +23,18 @@
 #include "settings.h"
 #include "sound.h"
 #include "version.h"
-#include <ICameraSceneNode.h>
-#include <IGUIStaticText.h>
 #include "client/imagefilters.h"
 #include "util/tracy_wrapper.h"
 #include "script/common/c_types.h" // LuaError
+// irr includes
+#include <ICameraSceneNode.h>
+#include <IGUIStaticText.h>
 
 #if USE_SOUND
 	#include "client/sound/sound_openal.h"
 #endif
+
+using namespace irr;
 
 
 /******************************************************************************/

@@ -55,6 +55,8 @@
 #include "mapnode.h"
 #include "item_visuals_manager.h"
 
+using namespace irr;
+
 extern gui::IGUIEnvironment* guienv;
 
 /*

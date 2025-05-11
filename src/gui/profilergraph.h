@@ -4,11 +4,15 @@
 
 #pragma once
 
-#include <SColor.h>
+#include "profiler.h"
 #include <deque>
 #include <utility>
+// irr includes
 #include <IGUIFont.h>
-#include "profiler.h"
+#include <SColor.h>
+
+namespace gui = irr::gui;
+namespace video = irr::video;
 
 namespace irr::video {
 	class IVideoDriver;

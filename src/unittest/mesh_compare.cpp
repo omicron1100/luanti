@@ -7,6 +7,8 @@
 #include <map>
 #include <stdexcept>
 
+using namespace irr;
+
 static std::vector<Triangle> expandMesh(const std::vector<video::S3DVertex> &vertices, const std::vector<u16> &indices)
 {
 	const int n_indices = indices.size();

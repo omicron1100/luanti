@@ -11,6 +11,7 @@
 #include "daynightratio.h"
 #include "emerge.h"
 
+using namespace irr;
 
 Environment::Environment(IGameDef *gamedef):
 	m_time_of_day_speed(0.0f),

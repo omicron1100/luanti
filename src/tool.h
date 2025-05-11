@@ -16,6 +16,8 @@
 #include <map>
 #include <optional>
 
+namespace video = irr::video;
+
 struct ItemDefinition;
 class IItemDefManager;
 

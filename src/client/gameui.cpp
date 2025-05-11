@@ -5,7 +5,7 @@
 
 #include "gameui.h"
 #include <irrlicht_changes/static_text.h>
-#include <gettext.h>
+#include "gettext.h"
 #include "gui/mainmenumanager.h"
 #include "gui/guiChatConsole.h"
 #include "gui/touchcontrols.h"
@@ -19,6 +19,9 @@
 #include "profiler.h"
 #include "renderingengine.h"
 #include "version.h"
+
+using namespace irr;
+using namespace irr::gui;
 
 inline static const char *yawToDirectionString(int yaw)
 {

@@ -4,15 +4,18 @@
 
 #pragma once
 
-#include <IGUIStaticText.h>
-#include "irrlicht_changes/static_text.h"
-#include "IGUIButton.h"
-#include "IGUISpriteBank.h"
-#include "ITexture.h"
-#include "SColor.h"
 #include "StyleSpec.h"
+#include "irrlicht_changes/static_text.h"
+// irr includes
+#include <IGUIButton.h>
+#include <IGUISpriteBank.h>
+#include <ITexture.h>
+#include <IGUIStaticText.h>
+#include <SColor.h>
 
-using namespace irr;
+namespace core = irr::core;
+namespace gui = irr::gui;
+namespace video = irr::video;
 
 class ISimpleTextureSource;
 
@@ -29,7 +32,7 @@ public:
 	virtual ~GUIButton();
 
 	//! called if an event happened.
-	virtual bool OnEvent(const SEvent& event) override;
+	virtual bool OnEvent(const irr::SEvent& event) override;
 
 	//! draws the element and its children
 	virtual void draw() override;

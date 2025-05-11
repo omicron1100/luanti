@@ -5,8 +5,11 @@
 
 #include "anaglyph.h"
 #include "client/camera.h"
+// irr includes
 #include <IrrlichtDevice.h>
 #include <ISceneManager.h>
+
+using namespace irr;
 
 /// SetColorMaskStep step
 

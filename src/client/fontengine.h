@@ -13,6 +13,8 @@
 #include "irrString.h" // utf8_to_wide
 #include "threading/mutex_auto_lock.h"
 
+namespace gui = irr::gui;
+
 namespace irr {
 	namespace gui {
 		class IGUIEnvironment;

@@ -23,6 +23,8 @@
 #include "util/string.h" // StringMap
 #include "config.h"
 
+namespace scene = irr::scene;
+
 #if !IS_CLIENT_BUILD
 #error Do not include in server builds
 #endif

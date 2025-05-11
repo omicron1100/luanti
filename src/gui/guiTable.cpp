@@ -8,8 +8,6 @@
 #include <sstream>
 #include <utility>
 #include <cstring>
-#include <IGUISkin.h>
-#include <IGUIFont.h>
 #include "client/renderingengine.h"
 #include "debug.h"
 #include "irrlicht_changes/CGUITTFont.h"
@@ -22,6 +20,11 @@
 #include "settings.h" // for settings
 #include "porting.h" // for dpi
 #include "client/guiscalingfilter.h"
+#include <IGUISkin.h>
+#include <IGUIFont.h>
+
+using namespace irr;
+using namespace irr::gui;
 
 /*
 	GUITable

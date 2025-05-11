@@ -4,10 +4,12 @@
 
 #pragma once
 
+#include "irrlichttypes.h"
 #include <IGUIElement.h>
 #include <IGUIEnvironment.h>
 
-using namespace irr;
+namespace core = irr::core;
+namespace gui = irr::gui;
 
 class Client;
 

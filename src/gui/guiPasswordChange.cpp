@@ -19,6 +19,9 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include "guiPasswordChange.h"
 #include "client/client.h"
 #include "guiButton.h"
+#include "porting.h"
+#include "gettext.h"
+// irr includes
 #include <IGUICheckBox.h>
 #include <IGUIEditBox.h>
 #include <IGUIButton.h>
@@ -26,8 +29,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include <IGUIFont.h>
 #include <IVideoDriver.h>
 
-#include "porting.h"
-#include "gettext.h"
+using namespace irr;
 
 const int ID_oldPassword = 256;
 const int ID_newPassword1 = 257;

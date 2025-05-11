@@ -12,6 +12,8 @@
 #include "log_internal.h"
 #include "client/renderingengine.h"
 
+using namespace irr;
+
 void MyEventReceiver::reloadKeybindings()
 {
 	clearKeyCache();

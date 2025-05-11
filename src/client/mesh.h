@@ -22,8 +22,6 @@ namespace irr {
 	}
 }
 
-using namespace irr; // TODO: remove "using namespace" from headers
-
 /*!
  * Applies shading to a color based on the surface's
  * normal vector.

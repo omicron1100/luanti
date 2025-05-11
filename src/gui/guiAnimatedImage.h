@@ -1,10 +1,15 @@
 #pragma once
 
+#include "irrlichttypes.h"
 #include <algorithm>
+// irr includes
 #include <IGUIElement.h>
 #include <IGUIEnvironment.h>
 
-using namespace irr;
+
+namespace core = irr::core;
+namespace gui = irr::gui;
+namespace video = irr::video;
 
 class ISimpleTextureSource;
 

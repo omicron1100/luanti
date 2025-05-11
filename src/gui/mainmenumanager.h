@@ -63,7 +63,7 @@ public:
 	}
 
 	// Returns true to prevent further processing
-	virtual bool preprocessEvent(const SEvent& event)
+	virtual bool preprocessEvent(const irr::SEvent& event)
 	{
 		if (m_stack.empty())
 			return false;

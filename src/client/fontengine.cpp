@@ -15,6 +15,8 @@
 #include <cstring>
 #include <unordered_set>
 
+using namespace irr;
+
 /** reference to access font engine, has to be initialized by main */
 FontEngine *g_fontengine = nullptr;
 

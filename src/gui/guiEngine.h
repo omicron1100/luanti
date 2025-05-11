@@ -14,6 +14,9 @@
 #include "util/enriched_string.h"
 #include "translation.h"
 
+namespace gui = irr::gui;
+namespace video = irr::video;
+
 /******************************************************************************/
 /* Structs and macros                                                         */
 /******************************************************************************/

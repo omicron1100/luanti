@@ -17,7 +17,8 @@
 #include "mainmenumanager.h"
 #include "porting.h"
 
-using namespace irr::gui;
+using namespace irr;
+using namespace gui;
 
 static bool check_color(const std::string &str)
 {

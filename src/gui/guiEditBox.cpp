@@ -3,13 +3,16 @@
 // Copyright (C) 2021 Minetest
 
 #include "guiEditBox.h"
-
-#include "IGUISkin.h"
-#include "IGUIEnvironment.h"
-#include "IGUIFont.h"
-
 #include "porting.h"
 #include "util/string.h"
+
+// irr includes
+#include <IGUISkin.h>
+#include <IGUIEnvironment.h>
+#include <IGUIFont.h>
+
+using namespace irr;
+using namespace irr::gui;
 
 GUIEditBox::~GUIEditBox()
 {

@@ -42,7 +42,7 @@ public:
 
 	bool processInput();
 
-	bool OnEvent(const SEvent &event);
+	bool OnEvent(const irr::SEvent &event);
 #ifdef __ANDROID__
 	void getAndroidUIInput();
 #endif

@@ -8,6 +8,9 @@
 #include <rect.h>
 #include <SColor.h>
 
+namespace core = irr::core;
+namespace video = irr::video;
+
 namespace irr::video
 {
 	class IVideoDriver;

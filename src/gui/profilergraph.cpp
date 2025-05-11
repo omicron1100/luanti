@@ -3,10 +3,13 @@
 // Copyright (C) 2010-2013 celeron55, Perttu Ahola <celeron55@gmail.com>
 // Copyright (C) 2018 nerzhul, Loic Blot <loic.blot@unix-experience.fr>
 
-#include "porting.h"
 #include "profilergraph.h"
-#include "IVideoDriver.h"
+#include "porting.h"
 #include "util/string.h"
+// irr includes
+#include <IVideoDriver.h>
+
+using namespace irr;
 
 void ProfilerGraph::put(const Profiler::GraphValues &values)
 {

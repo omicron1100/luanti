@@ -7,6 +7,10 @@
 
 #include "guiEditBox.h"
 
+namespace core = irr::core;
+namespace gui = irr::gui;
+namespace video = irr::video;
+
 class ISimpleTextureSource;
 
 class GUIEditBoxWithScrollBar : public GUIEditBox
@@ -14,8 +18,8 @@ class GUIEditBoxWithScrollBar : public GUIEditBox
 public:
 
 	//! constructor
-	GUIEditBoxWithScrollBar(const wchar_t* text, bool border, IGUIEnvironment* environment,
-		IGUIElement* parent, s32 id, const core::rect<s32>& rectangle,
+	GUIEditBoxWithScrollBar(const wchar_t* text, bool border, gui::IGUIEnvironment* environment,
+		gui::IGUIElement* parent, s32 id, const core::rect<s32>& rectangle,
 		ISimpleTextureSource *tsrc, bool writable = true, bool has_vscrollbar = true);
 
 	//! destructor
@@ -37,8 +41,8 @@ public:
 	virtual bool isDrawBorderEnabled() const;
 	virtual void setCursorChar(const wchar_t cursorChar);
 	virtual wchar_t getCursorChar() const;
-	virtual void setCursorBlinkTime(irr::u32 timeMs);
-	virtual irr::u32 getCursorBlinkTime() const;
+	virtual void setCursorBlinkTime(u32 timeMs);
+	virtual u32 getCursorBlinkTime() const;
 
 protected:
 	//! Breaks the single text line.

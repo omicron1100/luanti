@@ -8,6 +8,8 @@
 #include <irrlichttypes.h>
 #include <S3DVertex.h>
 
+namespace video = irr::video;
+
 /// Represents a triangle as three vertices.
 /// “Smallest” (according to <) vertex is expected to be first, others should follow in the counter-clockwise order.
 using Triangle = std::array<video::S3DVertex, 3>;

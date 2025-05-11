@@ -9,6 +9,8 @@
 #include <string>
 #include <vector>
 
+namespace video = irr::video;
+
 namespace irr::video
 {
 	class IImage;

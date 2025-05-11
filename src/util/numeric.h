@@ -10,10 +10,14 @@
 #include "irr_v2d.h"
 #include "irr_v3d.h"
 #include "irr_aabb3d.h"
-#include "SColor.h"
-#include <matrix4.h>
 #include <cmath>
 #include <algorithm>
+// irr includes
+#include <SColor.h>
+#include <matrix4.h>
+
+namespace core = irr::core;
+namespace video = irr::video;
 
 // Like std::clamp but allows mismatched types
 template <typename T, typename T2, typename T3>

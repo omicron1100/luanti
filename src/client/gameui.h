@@ -6,10 +6,14 @@
 #pragma once
 
 #include "irrlichttypes.h"
-#include <IGUIEnvironment.h>
 #include "game.h"
+// irr includes
+#include <IGUIEnvironment.h>
 
-using namespace irr;
+namespace core = irr::core;
+namespace gui = irr::gui;
+namespace video = irr::video;
+
 class Client;
 class EnrichedString;
 class GUIChatConsole;

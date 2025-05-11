@@ -22,15 +22,19 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include "guiButton.h"
 #include "guiScrollBar.h"
 #include "serialization.h"
+#include "settings.h"
+#include "gettext.h"
+
 #include <string>
+// irr includes
 #include <IGUICheckBox.h>
 #include <IGUIButton.h>
 #include <IGUIStaticText.h>
 #include <IGUIFont.h>
 #include <IVideoDriver.h>
-#include "settings.h"
 
-#include "gettext.h"
+using namespace irr;
+using namespace irr::gui;
 
 const int ID_soundText = 263;
 const int ID_soundExitButton = 264;

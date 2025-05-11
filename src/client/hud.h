@@ -15,6 +15,7 @@
 #include <CMeshBuffer.h>
 #include <irr_ptr.h>
 
+namespace core = irr::core;
 namespace scene = irr::scene;
 namespace video = irr::video;
 

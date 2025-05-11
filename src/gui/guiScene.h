@@ -4,13 +4,17 @@
 
 #pragma once
 
-#include "ICameraSceneNode.h"
 #include "StyleSpec.h"
+// irr includes
+#include <ICameraSceneNode.h>
 #include <IAnimatedMeshSceneNode.h>
 #include <IGUIElement.h>
 #include <IGUIEnvironment.h>
 
-using namespace irr;
+namespace core = irr::core;
+namespace gui = irr::gui;
+namespace scene = irr::scene;
+namespace video = irr::video;
 
 class GUIScene : public gui::IGUIElement
 {
@@ -31,7 +35,7 @@ public:
 	void setStyles(const std::array<StyleSpec, StyleSpec::NUM_STATES> &styles);
 
 	virtual void draw();
-	virtual bool OnEvent(const SEvent &event);
+	virtual bool OnEvent(const irr::SEvent &event);
 
 private:
 	void calcOptimalDistance();

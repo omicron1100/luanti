@@ -5,13 +5,17 @@
 
 #include "guiEditBoxWithScrollbar.h"
 
-#include "IGUISkin.h"
-#include "IGUIEnvironment.h"
-#include "IGUIFont.h"
-#include "IVideoDriver.h"
 #include "rect.h"
 #include "porting.h"
 #include "Keycodes.h"
+// irr includes
+#include <IGUISkin.h>
+#include <IGUIEnvironment.h>
+#include <IGUIFont.h>
+#include <IVideoDriver.h>
+
+using namespace irr;
+using namespace irr::gui;
 
 /*
 todo:

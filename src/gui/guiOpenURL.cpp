@@ -18,13 +18,17 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include "guiOpenURL.h"
 #include "guiButton.h"
 #include "guiEditBoxWithScrollbar.h"
-#include <IGUIEditBox.h>
-#include <IGUIFont.h>
-#include <IVideoDriver.h>
 #include "client/renderingengine.h"
 #include "porting.h"
 #include "gettext.h"
 #include "util/colorize.h"
+// irr includes
+#include <IGUIEditBox.h>
+#include <IGUIFont.h>
+#include <IVideoDriver.h>
+
+using namespace irr;
+using namespace irr::gui;
 
 namespace {
 	constexpr int ID_url = 256;
@@ -126,15 +130,15 @@ void GUIOpenURLMenu::regenerateGui(v2u32 screensize)
 		text = wrap_rows(text, max_cols, true);
 
 		rect += topleft_client + v2s32(20 * s, ypos);
-		IGUIEditBox *e = new GUIEditBoxWithScrollBar(utf8_to_wide(text).c_str(), true, Environment,
+		IGUIEditBox *editBox = new GUIEditBoxWithScrollBar(utf8_to_wide(text).c_str(), true, Environment,
 				this, ID_url, rect, m_tsrc, false, true);
-		e->setMultiLine(true);
-		e->setWordWrap(true);
-		e->setTextAlignment(gui::EGUIA_UPPERLEFT, gui::EGUIA_UPPERLEFT);
-		e->setDrawBorder(true);
-		e->setDrawBackground(true);
-		e->setOverrideFont(font);
-		e->drop();
+		editBox->setMultiLine(true);
+		editBox->setWordWrap(true);
+		editBox->setTextAlignment(gui::EGUIA_UPPERLEFT, gui::EGUIA_UPPERLEFT);
+		editBox->setDrawBorder(true);
+		editBox->setDrawBackground(true);
+		editBox->setOverrideFont(font);
+		editBox->drop();
 	}
 
 	ypos += 80 * s;

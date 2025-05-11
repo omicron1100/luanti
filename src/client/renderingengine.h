@@ -15,7 +15,12 @@
 #include "client/render/core.h"
 // include the shadow mapper classes too
 #include "client/shadows/dynamicshadowsrender.h"
+// irr includes
 #include <IVideoDriver.h>
+
+namespace gui = irr::gui;
+namespace scene = irr::scene;
+namespace video = irr::video;
 
 #if !IS_CLIENT_BUILD
 #error Do not include in server builds
@@ -45,7 +50,7 @@ struct FpsControl {
 
 	void reset();
 
-	void limit(IrrlichtDevice *device, f32 *dtime);
+	void limit(irr::IrrlichtDevice *device, f32 *dtime);
 
 	u32 getBusyMs() const { return busy_time / 1000; }
 
@@ -96,7 +101,7 @@ public:
 		return s_singleton->_getWindowSize();
 	}
 
-	io::IFileSystem *get_filesystem()
+	irr::io::IFileSystem *get_filesystem()
 	{
 		return m_device->getFileSystem();
 	}

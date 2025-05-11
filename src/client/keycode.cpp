@@ -13,6 +13,8 @@
 #include <unordered_map>
 #include <vector>
 
+using namespace irr;
+
 struct table_key {
 	std::string Name; // An EKEY_CODE 'symbol' name as a string
 	irr::EKEY_CODE Key;

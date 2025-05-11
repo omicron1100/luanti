@@ -10,16 +10,20 @@
 #include "gettext.h"
 #include "irr_gui_ptr.h"
 #include "settings.h"
-
-#include "IGUIButton.h"
-#include "IGUIFont.h"
-#include "IGUIImage.h"
-#include "IGUIStaticText.h"
+// irr includes
+#include <IGUIButton.h>
+#include <IGUIFont.h>
+#include <IGUIImage.h>
+#include <IGUIStaticText.h>
 #include <IGUIElement.h>
 #include <IGUIEnvironment.h>
 
-GUITouchscreenLayout::GUITouchscreenLayout(gui::IGUIEnvironment* env,
-		gui::IGUIElement* parent, s32 id,
+using namespace irr;
+using namespace irr::core;
+using namespace irr::gui;
+
+GUITouchscreenLayout::GUITouchscreenLayout(IGUIEnvironment* env,
+		IGUIElement* parent, s32 id,
 		IMenuManager *menumgr, ISimpleTextureSource *tsrc
 ):
 	GUIModalMenu(env, parent, id, menumgr),

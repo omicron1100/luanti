@@ -12,8 +12,6 @@
 
 namespace video = irr::video;
 
-using namespace irr; // TODO: Remove "using namespace" from header files
-
 // This file is only used for internal generation of images.
 // Use texturesource.h to handle textures.
 

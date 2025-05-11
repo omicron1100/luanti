@@ -5,10 +5,11 @@
 #pragma once
 
 #include "irrlichttypes.h"
-#include <Keycodes.h>
-#include <IEventReceiver.h>
 #include <string>
 #include <variant>
+// irr includes
+#include <Keycodes.h>
+#include <IEventReceiver.h>
 
 /* A key press, consisting of a scancode or a keycode.
  * This fits into 64 bits, so prefer passing this by value.
@@ -58,7 +59,7 @@ public:
 	operator bool() const
 	{
 		return std::holds_alternative<irr::EKEY_CODE>(scancode) ?
-			Keycode::isValid(std::get<irr::EKEY_CODE>(scancode)) :
+			irr::Keycode::isValid(std::get<irr::EKEY_CODE>(scancode)) :
 			std::get<u32>(scancode) != 0;
 	}
 

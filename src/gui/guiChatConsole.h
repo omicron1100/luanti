@@ -53,7 +53,7 @@ public:
 	// Irrlicht draw method
 	virtual void draw();
 
-	virtual bool OnEvent(const SEvent& event);
+	virtual bool OnEvent(const irr::SEvent& event);
 
 	virtual void setVisible(bool visible);
 

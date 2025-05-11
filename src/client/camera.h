@@ -8,12 +8,17 @@
 #include "inventory.h"
 #include "util/numeric.h"
 #include "client/localplayer.h"
-#include <ICameraSceneNode.h>
-#include <ISceneNode.h>
-#include <plane3d.h>
 #include <array>
 #include <list>
 #include <optional>
+// irr includes
+#include <ICameraSceneNode.h>
+#include <ISceneNode.h>
+#include <plane3d.h>
+
+namespace core = irr::core;
+namespace scene = irr::scene;
+namespace video = irr::video;
 
 class LocalPlayer;
 struct MapDrawControl;

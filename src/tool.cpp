@@ -14,6 +14,7 @@
 #include "util/hex.h"
 #include <json/json.h>
 
+using namespace irr;
 
 void ToolGroupCap::toJson(Json::Value &object) const
 {

@@ -5,20 +5,23 @@
 #pragma once
 
 #include "irrlichttypes.h"
-#include "IGUIEditBox.h"
-#include "IOSOperator.h"
 #include "guiScrollBar.h"
 #include <vector>
+// irr includes
+#include <IGUIFont.h>
+#include <IGUIEditBox.h>
+#include <IOSOperator.h>
 
-using namespace irr;
-using namespace irr::gui;
+namespace core = irr::core;
+namespace gui = irr::gui;
+namespace video = irr::video;
 
-class GUIEditBox : public IGUIEditBox
+class GUIEditBox : public gui::IGUIEditBox
 {
 public:
-	GUIEditBox(IGUIEnvironment *environment, IGUIElement *parent, s32 id,
+	GUIEditBox(gui::IGUIEnvironment *environment, gui::IGUIElement *parent, s32 id,
 			core::rect<s32> rectangle, bool border, bool writable) :
-			IGUIEditBox(environment, parent, id, rectangle),
+			gui::IGUIEditBox(environment, parent, id, rectangle),
 			m_border(border), m_writable(writable), m_frame_rect(rectangle)
 	{
 	}
@@ -26,14 +29,14 @@ public:
 	virtual ~GUIEditBox();
 
 	//! Sets another skin independent font.
-	virtual void setOverrideFont(IGUIFont *font = 0);
+	virtual void setOverrideFont(gui::IGUIFont *font = 0);
 
-	virtual IGUIFont *getOverrideFont() const { return m_override_font; }
+	virtual gui::IGUIFont *getOverrideFont() const { return m_override_font; }
 
 	//! Get the font which is used right now for drawing
 	/** Currently this is the override font when one is set and the
 	font of the active skin otherwise */
-	virtual IGUIFont *getActiveFont() const;
+	virtual gui::IGUIFont *getActiveFont() const;
 
 	//! Sets another color for the text.
 	virtual void setOverrideColor(video::SColor color);
@@ -92,7 +95,7 @@ public:
 	virtual bool isPasswordBox() const { return m_passwordbox; }
 
 	//! Sets text justification
-	virtual void setTextAlignment(EGUI_ALIGNMENT horizontal, EGUI_ALIGNMENT vertical);
+	virtual void setTextAlignment(gui::EGUI_ALIGNMENT horizontal, gui::EGUI_ALIGNMENT vertical);
 
 	//! Sets the new caption of this element.
 	virtual void setText(const wchar_t *text);
@@ -113,7 +116,7 @@ public:
 	virtual void setWritable(bool can_write_text);
 
 	//! called if an event happened.
-	virtual bool OnEvent(const SEvent &event);
+	virtual bool OnEvent(const irr::SEvent &event);
 
 	virtual bool acceptsIME() { return isEnabled() && m_writable; };
 
@@ -127,14 +130,14 @@ protected:
 	void setTextMarkers(s32 begin, s32 end);
 
 	//! send some gui event to parent
-	void sendGuiEvent(EGUI_EVENT_TYPE type);
+	void sendGuiEvent(gui::EGUI_EVENT_TYPE type);
 
 	//! calculates the current scroll position
 	virtual void calculateScrollPos() = 0;
 
 	virtual s32 getCursorPos(s32 x, s32 y) = 0;
 
-	bool processKey(const SEvent &event);
+	bool processKey(const irr::SEvent &event);
 	virtual void inputString(const core::stringw &str);
 	virtual void inputChar(wchar_t c);
 
@@ -159,8 +162,8 @@ protected:
 	std::vector<core::stringw> m_broken_text;
 	std::vector<s32> m_broken_text_positions;
 
-	EGUI_ALIGNMENT m_halign = EGUIA_UPPERLEFT;
-	EGUI_ALIGNMENT m_valign = EGUIA_CENTER;
+	gui::EGUI_ALIGNMENT m_halign = gui::EGUIA_UPPERLEFT;
+	gui::EGUI_ALIGNMENT m_valign = gui::EGUIA_CENTER;
 
 	u32 m_blink_start_time = 0;
 	s32 m_cursor_pos = 0;
@@ -180,7 +183,7 @@ protected:
 	s32 m_mark_end = 0;
 
 	gui::IGUIFont *m_last_break_font = nullptr;
-	IOSOperator *m_operator = nullptr;
+	irr::IOSOperator *m_operator = nullptr;
 
 	core::rect<s32> m_frame_rect; // temporary values
 
@@ -188,13 +191,13 @@ protected:
 	GUIScrollBar *m_vscrollbar = nullptr;
 
 private:
-	bool processMouse(const SEvent &event);
+	bool processMouse(const irr::SEvent &event);
 
-	bool onKeyUp(const SEvent &event, s32 &mark_begin, s32 &mark_end);
-	bool onKeyDown(const SEvent &event, s32 &mark_begin, s32 &mark_end);
-	void onKeyControlC(const SEvent &event);
-	bool onKeyControlX(const SEvent &event, s32 &mark_begin, s32 &mark_end);
-	bool onKeyControlV(const SEvent &event, s32 &mark_begin, s32 &mark_end);
-	bool onKeyBack(const SEvent &event, s32 &mark_begin, s32 &mark_end);
-	bool onKeyDelete(const SEvent &event, s32 &mark_begin, s32 &mark_end);
+	bool onKeyUp(const irr::SEvent &event, s32 &mark_begin, s32 &mark_end);
+	bool onKeyDown(const irr::SEvent &event, s32 &mark_begin, s32 &mark_end);
+	void onKeyControlC(const irr::SEvent &event);
+	bool onKeyControlX(const irr::SEvent &event, s32 &mark_begin, s32 &mark_end);
+	bool onKeyControlV(const irr::SEvent &event, s32 &mark_begin, s32 &mark_end);
+	bool onKeyBack(const irr::SEvent &event, s32 &mark_begin, s32 &mark_end);
+	bool onKeyDelete(const irr::SEvent &event, s32 &mark_begin, s32 &mark_end);
 };

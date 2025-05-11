@@ -20,6 +20,9 @@
 #include <IEventReceiver.h>
 #include <line3d.h>
 
+namespace core = irr::core;
+namespace gui = irr::gui;
+
 namespace irr
 {
 	class IrrlichtDevice;
@@ -36,11 +39,6 @@ namespace irr
 }
 class ISimpleTextureSource;
 
-namespace core = irr::core;
-namespace gui = irr::gui;
-
-using namespace irr::core; // TODO: Remove "using namespace irr"
-using namespace irr::gui; // TODO: Remove "using namespace irr"
 
 enum class TapState
 {
@@ -79,11 +77,11 @@ struct button_info
 class TouchControls
 {
 public:
-	TouchControls(IrrlichtDevice *device, ISimpleTextureSource *tsrc);
+	TouchControls(irr::IrrlichtDevice *device, ISimpleTextureSource *tsrc);
 	~TouchControls();
 	DISABLE_CLASS_COPY(TouchControls);
 
-	void translateEvent(const SEvent &event);
+	void translateEvent(const irr::SEvent &event);
 	void applyContextControls(const TouchInteractionMode &mode);
 
 	double getYawChange()
@@ -133,7 +131,7 @@ public:
 private:
 	irr::IrrlichtDevice *m_device = nullptr;
 	gui::IGUIEnvironment *m_guienv = nullptr;
-	IEventReceiver *m_receiver = nullptr;
+	irr::IEventReceiver *m_receiver = nullptr;
 	ISimpleTextureSource *m_texturesource = nullptr;
 	bool m_visible = true;
 
@@ -235,7 +233,7 @@ private:
 			const core::recti &rect, bool visible);
 
 	// handle pressing hotbar items
-	bool isHotbarButton(const SEvent &event);
+	bool isHotbarButton(const irr::SEvent &event);
 
 	// handle release event
 	void handleReleaseEvent(size_t pointer_id);

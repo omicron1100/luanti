@@ -24,6 +24,8 @@
 	#include <windows.h>
 #endif
 
+using namespace irr;
+
 #ifndef _WIN32
 
 namespace {
@@ -308,7 +310,7 @@ u64 read_seed(const char *str)
 	return num;
 }
 
-static bool parseHexColorString(const std::string &value, irr::video::SColor &color,
+static bool parseHexColorString(const std::string &value, video::SColor &color,
 		unsigned char default_alpha)
 {
 	u8 components[] = {0x00, 0x00, 0x00, default_alpha}; // R,G,B,A

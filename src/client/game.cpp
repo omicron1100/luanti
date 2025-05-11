@@ -65,6 +65,8 @@
 	#include "client/sound/sound_openal.h"
 #endif
 
+using namespace irr;
+
 class NodeDugEvent : public MtEvent
 {
 public:

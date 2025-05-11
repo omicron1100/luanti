@@ -3,8 +3,11 @@
 // Copyright (C) 2013 celeron55, Perttu Ahola <celeron55@gmail.com>
 
 #include "guiBox.h"
-#include <IVideoDriver.h>
 #include "irr_v2d.h"
+// irr includes
+#include <IVideoDriver.h>
+
+using namespace irr;
 
 GUIBox::GUIBox(gui::IGUIEnvironment *env, gui::IGUIElement *parent, s32 id,
 	const core::rect<s32> &rectangle,

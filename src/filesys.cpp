@@ -42,6 +42,8 @@
 #include <unistd.h>
 #endif
 
+using namespace irr;
+
 // Error from last OS call as string
 #ifdef _WIN32
 #define LAST_OS_ERROR() porting::ConvertError(GetLastError())

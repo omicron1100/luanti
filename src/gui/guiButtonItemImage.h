@@ -5,9 +5,11 @@
 #pragma once
 
 #include "guiButton.h"
-#include "IGUIButton.h"
+// irr includes
+#include <IGUIButton.h>
 
-using namespace irr;
+namespace core = irr::core;
+namespace gui = irr::gui;
 
 class Client;
 class GUIItemImage;

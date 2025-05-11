@@ -5,9 +5,12 @@
 #pragma once
 
 #include "irrlichttypes.h"
-#include <ITexture.h>
 #include <vector>
+// irr includes
+#include <ITexture.h>
 #include <SMaterial.h>
+
+namespace video = irr::video;
 
 enum MaterialType : u8 {
 	TILE_MATERIAL_BASIC,

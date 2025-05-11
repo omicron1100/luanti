@@ -5,9 +5,14 @@
 #pragma once
 
 #include "irrlichttypes.h"
+// irr includes
 #include <path.h>
 #include <rect.h>
 #include <SColor.h>
+
+namespace core = irr::core;
+namespace io = irr::io;
+namespace video = irr::video;
 
 namespace irr::video
 {

@@ -4,8 +4,7 @@
 // Copyright (C) 2017 nerzhul, Loic Blot <loic.blot@unix-experience.fr>
 
 #include <optional>
-#include <irrlicht.h>
-#include "IMeshCache.h"
+#include "renderingengine.h"
 #include "fontengine.h"
 #include "client.h"
 #include "clouds.h"
@@ -17,12 +16,16 @@
 #include "camera.h"
 #include "minimap.h"
 #include "clientmap.h"
-#include "renderingengine.h"
 #include "render/core.h"
 #include "render/factory.h"
 #include "filesys.h"
 #include "irrlicht_changes/static_text.h"
 #include "irr_ptr.h"
+// irr includes
+#include <irrlicht.h>
+#include <IMeshCache.h>
+
+using namespace irr;
 
 RenderingEngine *RenderingEngine::s_singleton = nullptr;
 const video::SColor RenderingEngine::MENU_SKY_COLOR = video::SColor(255, 140, 186, 250);

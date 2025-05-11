@@ -5,11 +5,14 @@
 #pragma once
 
 #include "inventorymanager.h"
+#include "irr_v2d.h"
+// irr includes
 #include <IGUIElement.h>
 #include <IGUIEnvironment.h>
-#include "irr_v2d.h"
 
-using namespace irr;
+namespace core = irr::core;
+namespace gui = irr::gui;
+namespace video = irr::video;
 
 class GUIFormSpecMenu;
 
@@ -72,7 +75,7 @@ public:
 
 	virtual void draw() override;
 
-	virtual bool OnEvent(const SEvent &event) override;
+	virtual bool OnEvent(const irr::SEvent &event) override;
 
 	const InventoryLocation &getInventoryloc() const
 	{

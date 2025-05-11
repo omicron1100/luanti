@@ -10,6 +10,9 @@
 #include <memory>
 #include <unordered_map>
 
+namespace core = irr::core;
+namespace gui = irr::gui;
+
 class ISimpleTextureSource;
 namespace irr::gui
 {
@@ -27,7 +30,7 @@ public:
 
 	void regenerateGui(v2u32 screensize);
 	void drawMenu();
-	bool OnEvent(const SEvent& event);
+	bool OnEvent(const irr::SEvent& event);
 
 protected:
 	std::wstring getLabelByID(s32 id) { return L""; }

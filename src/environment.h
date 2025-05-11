@@ -22,7 +22,10 @@
 #include <optional>
 #include "irr_v3d.h"
 #include "util/basic_macros.h"
-#include "line3d.h"
+// irr includes
+#include <line3d.h>
+
+namespace core = irr::core;
 
 class IGameDef;
 class Map;

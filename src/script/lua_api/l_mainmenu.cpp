@@ -35,6 +35,8 @@
 #include <cassert>
 #include <iostream>
 
+using namespace irr;
+
 /******************************************************************************/
 std::string ModApiMainMenu::getTextData(lua_State *L, const std::string &name)
 {

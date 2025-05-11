@@ -6,6 +6,9 @@
 
 #include "guiScrollBar.h"
 
+namespace core = irr::core;
+namespace gui = irr::gui;
+
 class GUIScrollContainer : public gui::IGUIElement
 {
 public:
@@ -13,7 +16,7 @@ public:
 			const core::rect<s32> &rectangle, const std::string &orientation,
 			f32 scrollfactor);
 
-	virtual bool OnEvent(const SEvent &event) override;
+	virtual bool OnEvent(const irr::SEvent &event) override;
 
 	virtual void draw() override;
 

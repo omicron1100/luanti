@@ -10,8 +10,8 @@
 #include "modalMenu.h"
 #include <cassert>
 #include <list>
-
-#include "IGUIEnvironment.h"
+// irr includes
+#include <IGUIEnvironment.h>
 
 namespace irr::gui {
 	class IGUIStaticText;
@@ -65,7 +65,7 @@ public:
 	}
 
 	// Returns true to prevent further processing
-	virtual bool preprocessEvent(const SEvent& event)
+	virtual bool preprocessEvent(const irr::SEvent& event)
 	{
 		if (m_stack.empty())
 			return false;

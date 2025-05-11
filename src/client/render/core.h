@@ -24,7 +24,7 @@ class RenderTarget;
 class RenderingCore
 {
 protected:
-	IrrlichtDevice *device;
+	irr::IrrlichtDevice *device;
 	Client *client;
 	Hud *hud;
 	ShadowRenderer *shadow_renderer;
@@ -35,7 +35,7 @@ protected:
 	v2u32 virtual_size { 0, 0 };
 
 public:
-	RenderingCore(IrrlichtDevice *device, Client *client, Hud *hud,
+	RenderingCore(irr::IrrlichtDevice *device, Client *client, Hud *hud,
 			ShadowRenderer *shadow_renderer, RenderPipeline *pipeline,
 			v2f virtual_size_scale);
 	RenderingCore(const RenderingCore &) = delete;
@@ -45,7 +45,7 @@ public:
 	RenderingCore &operator=(const RenderingCore &) = delete;
 	RenderingCore &operator=(RenderingCore &&) = delete;
 
-	void draw(video::SColor _skycolor, bool _show_hud,
+	void draw(irr::video::SColor _skycolor, bool _show_hud,
 			bool _draw_wield_tool, bool _draw_crosshair);
 
 	v2u32 getVirtualSize() const;

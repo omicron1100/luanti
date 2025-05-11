@@ -5,6 +5,8 @@
 #include "guiPathSelectMenu.h"
 #include "guiFormSpecMenu.h" //required because of TextDest only !!!
 
+using namespace irr;
+
 GUIFileSelectMenu::GUIFileSelectMenu(gui::IGUIEnvironment* env,
 		gui::IGUIElement* parent, s32 id, IMenuManager *menumgr,
 		const std::string &title, const std::string &formname,

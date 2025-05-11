@@ -23,7 +23,6 @@ class Client;
 #endif
 
 namespace core = irr::core;
-namespace scene = irr::scene;
 namespace video = irr::video;
 
 class IItemDefManager;
@@ -345,7 +344,7 @@ struct ContentFeatures
 	enum NodeDrawType drawtype;
 	std::string mesh;
 #if CHECK_CLIENT_BUILD()
-	scene::SMesh *mesh_ptr; // mesh in case of mesh node
+	irr::scene::SMesh *mesh_ptr; // mesh in case of mesh node
 	video::SColor minimap_color;
 #endif
 	float visual_scale; // Misc. scale parameter
@@ -510,7 +509,7 @@ struct ContentFeatures
 
 #if CHECK_CLIENT_BUILD()
 	void updateTextures(ITextureSource *tsrc, IShaderSource *shdsrc,
-		scene::IMeshManipulator *meshmanip, Client *client, const TextureSettings &tsettings);
+		irr::scene::IMeshManipulator *meshmanip, Client *client, const TextureSettings &tsettings);
 #endif
 
 private:

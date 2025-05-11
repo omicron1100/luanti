@@ -10,6 +10,7 @@
 #include <string>
 #include <unordered_map>
 
+namespace core = irr::core;
 
 enum ActiveObjectType {
 	ACTIVEOBJECT_TYPE_INVALID = 0,

@@ -4,16 +4,16 @@
 
 #include "guiButton.h"
 
-
 #include "client/guiscalingfilter.h"
-#include "IGUISkin.h"
-#include "IGUIEnvironment.h"
-#include "IVideoDriver.h"
-#include "IGUIFont.h"
-#include "irrlicht_changes/static_text.h"
 #include "porting.h"
 #include "StyleSpec.h"
 #include "util/numeric.h"
+// irr includes
+#include <IGUISkin.h>
+#include <IGUIEnvironment.h>
+#include <IVideoDriver.h>
+#include <IGUIFont.h>
+#include "irrlicht_changes/static_text.h"
 
 using namespace irr;
 using namespace gui;

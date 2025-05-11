@@ -22,11 +22,11 @@ enum class PointerType {
 	Touch,
 };
 
-class MyEventReceiver : public IEventReceiver
+class MyEventReceiver : public irr::IEventReceiver
 {
 public:
 	// This is the one method that we have to implement
-	virtual bool OnEvent(const SEvent &event);
+	virtual bool OnEvent(const irr::SEvent &event);
 
 	bool IsKeyDown(GameKeyType key) const { return keyIsDown[key]; }
 

@@ -11,6 +11,10 @@
 
 #include "guiScrollBar.h"
 
+namespace core = irr::core;
+namespace gui = irr::gui;
+namespace video = irr::video;
+
 class ISimpleTextureSource;
 
 /*

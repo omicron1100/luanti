@@ -39,9 +39,6 @@ class ISimpleTextureSource;
 namespace core = irr::core;
 namespace gui = irr::gui;
 
-using namespace irr::core; // TODO: Remove "using namespace irr"
-using namespace irr::gui; // TODO: Remove "using namespace irr"
-
 enum class TapState
 {
 	None,

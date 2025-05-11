@@ -112,7 +112,7 @@ class GUIFormSpecMenu : public GUIModalMenu
 
 		FieldSpec(const std::string &name, const std::wstring &label,
 				const std::wstring &default_text, s32 id, int priority = 0,
-				gui::ECURSOR_ICON cursor_icon = ECI_NORMAL) :
+				gui::ECURSOR_ICON cursor_icon = gui::ECI_NORMAL) :
 			fname(name),
 			flabel(label),
 			fdefault(unescape_enriched(translate_string(default_text))),

@@ -6,10 +6,12 @@
 #pragma once
 
 #include "irrlichttypes.h"
-#include <IGUIEnvironment.h>
 #include "game.h"
+// irr includes
+#include <IGUIEnvironment.h>
 
-using namespace irr;
+using namespace irr; // TODO: Remove "using namespace irr" from header files
+
 class Client;
 class EnrichedString;
 class GUIChatConsole;

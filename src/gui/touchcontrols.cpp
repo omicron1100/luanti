@@ -29,6 +29,9 @@
 #include <IGUIElement.h>
 #include <IGUIEnvironment.h>
 
+using namespace irr::core;
+using namespace irr::gui;
+
 TouchControls *g_touchcontrols;
 
 void TouchControls::emitKeyboardEvent(KeyPress key, bool pressed)

@@ -7,7 +7,11 @@
 #include "drawItemStack.h"
 #include "client/client.h"
 #include "client/renderingengine.h"
+// irr includes
 #include <IVideoDriver.h>
+
+using namespace irr;
+using namespace irr::gui;
 
 GUIInventoryList::GUIInventoryList(gui::IGUIEnvironment *env,
 	gui::IGUIElement *parent,

@@ -19,6 +19,9 @@
 #include "guiScrollBar.h"
 #include <string>
 
+using namespace irr;
+using namespace irr::gui;
+
 inline u32 clamp_u8(s32 value)
 {
 	return (u32) MYMIN(MYMAX(value, 0), 255);

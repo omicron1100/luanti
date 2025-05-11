@@ -16,6 +16,9 @@ the arrow buttons where there is insufficient space.
 #include "settings.h"
 #include <IGUISkin.h>
 
+using namespace irr;
+using namespace irr::gui;
+
 GUIScrollBar::GUIScrollBar(IGUIEnvironment *environment, IGUIElement *parent, s32 id,
 		core::rect<s32> rectangle, bool horizontal, bool auto_scale,
 		ISimpleTextureSource *tsrc) :

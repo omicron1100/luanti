@@ -10,6 +10,9 @@
 #include <memory>
 #include <unordered_map>
 
+namespace core = irr::core;
+namespace gui = irr::gui;
+
 class ISimpleTextureSource;
 namespace irr::gui
 {

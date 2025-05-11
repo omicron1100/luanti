@@ -3,9 +3,9 @@
 // Copyright (C) 2021 x2048, Dmitry Kostenko <codeforsmile@gmail.com>
 
 #pragma once
-#include "SColor.h"
+#include <SColor.h>
 
-using namespace irr;
+namespace video = irr::video;
 
 /**
  * Parameters for automatic exposure compensation

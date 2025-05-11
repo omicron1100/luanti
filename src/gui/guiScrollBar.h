@@ -13,18 +13,20 @@ the arrow buttons where there is insufficient space.
 #pragma once
 
 #include <optional>
+#include "irrlichttypes.h"
+// irr includes
 #include <IGUIElement.h>
 #include <IGUIEnvironment.h>
 
+namespace core = irr::core;
+namespace gui = irr::gui;
+
 class ISimpleTextureSource;
 
-using namespace irr;
-using namespace gui;
-
-class GUIScrollBar : public IGUIElement
+class GUIScrollBar : public gui::IGUIElement
 {
 public:
-	GUIScrollBar(IGUIEnvironment *environment, IGUIElement *parent, s32 id,
+	GUIScrollBar(gui::IGUIEnvironment *environment, gui::IGUIElement *parent, s32 id,
 			core::rect<s32> rectangle, bool horizontal, bool auto_scale,
 			ISimpleTextureSource *tsrc);
 
@@ -37,7 +39,7 @@ public:
 
 	virtual void draw() override;
 	virtual void updateAbsolutePosition() override;
-	virtual bool OnEvent(const SEvent &event) override;
+	virtual bool OnEvent(const irr::SEvent &event) override;
 	virtual void OnPostRender(u32 time_ms) override;
 
 	s32 getMax() const { return max_pos; }
@@ -70,8 +72,8 @@ private:
 	s32 getPosFromMousePos(const core::position2di &p) const;
 	f32 range() const { return f32(max_pos - min_pos); }
 
-	IGUIButton *up_button;
-	IGUIButton *down_button;
+	gui::IGUIButton *up_button;
+	gui::IGUIButton *down_button;
 	ArrowVisibility arrow_visibility = DEFAULT;
 	bool is_dragging;
 	bool is_horizontal;

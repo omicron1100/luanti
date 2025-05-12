@@ -5,7 +5,7 @@
 #pragma once
 
 #include "itemdef.h"
-#include "irrlichttypes.h"
+#include "util/types.h"
 #include "itemstackmetadata.h"
 #include <istream>
 #include <ostream>

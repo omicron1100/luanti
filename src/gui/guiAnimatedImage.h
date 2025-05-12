@@ -1,6 +1,6 @@
 #pragma once
 
-#include "irrlichttypes.h"
+#include "util/types.h"
 #include <algorithm>
 // irr includes
 #include <IGUIElement.h>

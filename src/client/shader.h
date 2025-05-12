@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include "irrlichttypes.h"
+#include "util/types.h"
 #include <string>
 #include <map>
 #include <variant>

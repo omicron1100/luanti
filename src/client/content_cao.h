@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "irrlichttypes.h"
+#include "util/types.h"
 
 #include "object_properties.h"
 #include "clientobject.h"

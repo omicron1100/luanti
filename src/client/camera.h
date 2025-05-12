@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "irrlichttypes.h"
+#include "util/types.h"
 #include "inventory.h"
 #include "util/numeric.h"
 #include "client/localplayer.h"

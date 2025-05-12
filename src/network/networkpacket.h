@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "irrlichttypes.h"
+#include "util/types.h"
 #include "irr_v2d.h"
 #include "irr_v3d.h"
 #include "networkprotocol.h"

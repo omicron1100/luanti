@@ -5,7 +5,7 @@
 #pragma once
 
 #include "lua_api/l_base.h"
-#include "irrlichttypes.h"
+#include "util/types.h"
 #include <lua.h>
 
 class ServerActiveObject;

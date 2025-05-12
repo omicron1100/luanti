@@ -6,7 +6,7 @@
 
 #include <memory>
 #include "util/container.h"
-#include "irrlichttypes.h"
+#include "util/types.h"
 #include "util/basic_macros.h"
 
 class TestClientActiveObjectMgr;

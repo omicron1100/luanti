@@ -7,7 +7,7 @@
 #include <ostream>
 #include <cstring>
 #include "address.h"
-#include "irrlichttypes.h"
+#include "util/types.h"
 #include "networkexceptions.h"
 
 void sockets_init();

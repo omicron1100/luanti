@@ -8,7 +8,7 @@
 #include <set>
 #include <string>
 #include "database.h"
-#include "irrlichttypes.h"
+#include "util/types.h"
 
 class Database_Dummy : public MapDatabase, public PlayerDatabase, public ModStorageDatabase
 {

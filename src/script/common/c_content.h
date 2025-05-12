@@ -20,7 +20,7 @@ extern "C" {
 #include <vector>
 #include <array>
 
-#include "irrlichttypes.h"
+#include "util/types.h"
 #include "util/string.h"
 #include "itemgroup.h"
 #include "itemdef.h"

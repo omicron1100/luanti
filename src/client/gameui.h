@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include "irrlichttypes.h"
+#include "util/types.h"
 #include "game.h"
 // irr includes
 #include <IGUIEnvironment.h>

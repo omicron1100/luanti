@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "irrlichttypes.h"
+#include "util/types.h"
 #include "filecache.h"
 #include "util/basic_macros.h"
 #include <map>

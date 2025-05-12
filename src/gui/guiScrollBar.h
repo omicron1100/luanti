@@ -12,8 +12,8 @@ the arrow buttons where there is insufficient space.
 
 #pragma once
 
-#include <optional>
 #include "irrlichttypes.h"
+#include <optional>
 // irr includes
 #include <IGUIElement.h>
 #include <IGUIEnvironment.h>

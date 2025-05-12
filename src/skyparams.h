@@ -6,10 +6,10 @@
 
 #include <vector>
 #include <string>
-#include "SColor.h"
 #include "irr_v2d.h"
+#include <SColor.h>
 
-using namespace irr;
+namespace video = irr::video;
 
 struct SkyColor
 {

@@ -5,11 +5,14 @@
 #pragma once
 
 #include "inventorymanager.h"
+#include "irr_v2d.h"
+// irr includes
 #include <IGUIElement.h>
 #include <IGUIEnvironment.h>
-#include "irr_v2d.h"
 
-using namespace irr;
+namespace core = irr::core;
+namespace gui = irr::gui;
+namespace video = irr::video;
 
 class GUIFormSpecMenu;
 

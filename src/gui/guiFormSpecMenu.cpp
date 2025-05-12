@@ -10,7 +10,6 @@
 #include <limits>
 #include <sstream>
 #include "guiFormSpecMenu.h"
-#include "EGUIElementTypes.h"
 #include "constants.h"
 #include "gamedef.h"
 #include "client/keycode.h"
@@ -49,6 +48,7 @@
 #include "guiHyperText.h"
 #include "guiScene.h"
 // irr includes
+#include <EGUIElementTypes.h>
 #include <IGUIButton.h>
 #include <IGUICheckBox.h>
 #include <IGUIComboBox.h>
@@ -1484,11 +1484,11 @@ void GUIFormSpecMenu::parsePwdField(parserData* data, const std::string &element
 		);
 
 	spec.send = true;
-	gui::IGUIEditBox *e = Environment->addEditBox(0, rect, true,
+	gui::IGUIEditBox *editBox = Environment->addEditBox(0, rect, true,
 			data->current_parent, spec.fid);
 
 	if (spec.fname == m_focused_element) {
-		Environment->setFocus(e);
+		Environment->setFocus(editBox);
 	}
 
 	if (label.length() >= 1) {
@@ -1499,13 +1499,13 @@ void GUIFormSpecMenu::parsePwdField(parserData* data, const std::string &element
 			data->current_parent, 0);
 	}
 
-	e->setPasswordBox(true,L'*');
+	editBox->setPasswordBox(true,L'*');
 
 	auto style = getDefaultStyleForElement("pwdfield", name, "field");
-	e->setNotClipped(style.getBool(StyleSpec::NOCLIP, false));
-	e->setDrawBorder(style.getBool(StyleSpec::BORDER, true));
-	e->setOverrideColor(style.getColor(StyleSpec::TEXTCOLOR, video::SColor(0xFFFFFFFF)));
-	e->setOverrideFont(style.getFont());
+	editBox->setNotClipped(style.getBool(StyleSpec::NOCLIP, false));
+	editBox->setDrawBorder(style.getBool(StyleSpec::BORDER, true));
+	editBox->setOverrideColor(style.getColor(StyleSpec::TEXTCOLOR, video::SColor(0xFFFFFFFF)));
+	editBox->setOverrideFont(style.getFont());
 
 	irr::SEvent evt;
 	evt.EventType            = EET_KEY_INPUT_EVENT;
@@ -1514,7 +1514,7 @@ void GUIFormSpecMenu::parsePwdField(parserData* data, const std::string &element
 	evt.KeyInput.Control     = false;
 	evt.KeyInput.Shift       = false;
 	evt.KeyInput.PressedDown = true;
-	e->OnEvent(evt);
+	editBox->OnEvent(evt);
 
 	// Note: Before 5.2.0 "parts.size() >= 5" resulted in a
 	// warning referring to field_close_on_enter[]!
@@ -1541,26 +1541,26 @@ void GUIFormSpecMenu::createTextField(parserData *data, FieldSpec &spec,
 		spec.flabel.swap(spec.fdefault);
 	}
 
-	gui::IGUIEditBox *e = nullptr;
+	gui::IGUIEditBox *editBox = nullptr;
 	if (is_multiline) {
-		e = new GUIEditBoxWithScrollBar(spec.fdefault.c_str(), true, Environment,
+		editBox = new GUIEditBoxWithScrollBar(spec.fdefault.c_str(), true, Environment,
 				data->current_parent, spec.fid, rect, m_tsrc, is_editable, true);
 	} else if (is_editable) {
-		e = Environment->addEditBox(spec.fdefault.c_str(), rect, true,
+		editBox = Environment->addEditBox(spec.fdefault.c_str(), rect, true,
 				data->current_parent, spec.fid);
-		e->grab();
+		editBox->grab();
 	}
 
 	auto style = getDefaultStyleForElement(is_multiline ? "textarea" : "field", spec.fname);
 
-	if (e) {
+	if (editBox) {
 		if (is_editable && spec.fname == m_focused_element)
-			Environment->setFocus(e);
+			Environment->setFocus(editBox);
 
 		if (is_multiline) {
-			e->setMultiLine(true);
-			e->setWordWrap(true);
-			e->setTextAlignment(gui::EGUIA_UPPERLEFT, gui::EGUIA_UPPERLEFT);
+			editBox->setMultiLine(true);
+			editBox->setWordWrap(true);
+			editBox->setTextAlignment(gui::EGUIA_UPPERLEFT, gui::EGUIA_UPPERLEFT);
 		} else {
 			irr::SEvent evt;
 			evt.EventType            = EET_KEY_INPUT_EVENT;
@@ -1569,28 +1569,28 @@ void GUIFormSpecMenu::createTextField(parserData *data, FieldSpec &spec,
 			evt.KeyInput.Control     = 0;
 			evt.KeyInput.Shift       = 0;
 			evt.KeyInput.PressedDown = true;
-			e->OnEvent(evt);
+			editBox->OnEvent(evt);
 		}
 
-		e->setNotClipped(style.getBool(StyleSpec::NOCLIP, false));
-		e->setOverrideColor(style.getColor(StyleSpec::TEXTCOLOR, video::SColor(0xFFFFFFFF)));
+		editBox->setNotClipped(style.getBool(StyleSpec::NOCLIP, false));
+		editBox->setOverrideColor(style.getColor(StyleSpec::TEXTCOLOR, video::SColor(0xFFFFFFFF)));
 		bool border = style.getBool(StyleSpec::BORDER, true);
-		e->setDrawBorder(border);
-		e->setDrawBackground(border);
-		e->setOverrideFont(style.getFont());
+		editBox->setDrawBorder(border);
+		editBox->setDrawBackground(border);
+		editBox->setOverrideFont(style.getFont());
 
-		e->drop();
+		editBox->drop();
 	}
 
 	if (!spec.flabel.empty()) {
 		int font_height = g_fontengine->getTextHeight();
 		rect.UpperLeftCorner.Y -= font_height;
 		rect.LowerRightCorner.Y = rect.UpperLeftCorner.Y + font_height;
-		IGUIElement *t = gui::StaticText::add(Environment, spec.flabel.c_str(),
+		gui::IGUIElement *text = gui::StaticText::add(Environment, spec.flabel.c_str(),
 				rect, false, true, data->current_parent, 0);
 
-		if (t)
-			t->setNotClipped(style.getBool(StyleSpec::NOCLIP, false));
+		if (text)
+			text->setNotClipped(style.getBool(StyleSpec::NOCLIP, false));
 	}
 }
 

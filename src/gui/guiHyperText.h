@@ -8,11 +8,13 @@
 #include <list>
 #include <unordered_map>
 #include <string>
+#include "irr_v3d.h"
+// irr includes
 #include <IGUIElement.h>
 #include <IGUIEnvironment.h>
-#include "irr_v3d.h"
 
-using namespace irr;
+namespace core = irr::core;
+namespace gui = irr::gui;
 
 class ISimpleTextureSource;
 class Client;

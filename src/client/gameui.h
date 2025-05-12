@@ -10,7 +10,9 @@
 // irr includes
 #include <IGUIEnvironment.h>
 
-using namespace irr; // TODO: Remove "using namespace irr" from header files
+namespace core = irr::core;
+namespace gui = irr::gui;
+namespace video = irr::video;
 
 class Client;
 class EnrichedString;

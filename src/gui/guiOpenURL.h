@@ -20,6 +20,8 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include "modalMenu.h"
 #include <string>
 
+namespace gui = irr::gui;
+
 class Client;
 class ISimpleTextureSource;
 
@@ -37,7 +39,7 @@ public:
 
 	void drawMenu();
 
-	bool OnEvent(const SEvent &event);
+	bool OnEvent(const irr::SEvent &event);
 
 protected:
 	std::wstring getLabelByID(s32 id) { return L""; }

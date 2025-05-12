@@ -6,7 +6,10 @@
 #include "client/client.h"
 #include "drawItemStack.h"
 #include "inventory.h"
+// irr includes
 #include <IGUIFont.h>
+
+using namespace irr;
 
 GUIItemImage::GUIItemImage(gui::IGUIEnvironment *env, gui::IGUIElement *parent,
 	s32 id, const core::rect<s32> &rectangle, const std::string &item_name,

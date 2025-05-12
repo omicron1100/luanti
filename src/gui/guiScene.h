@@ -4,13 +4,17 @@
 
 #pragma once
 
-#include "ICameraSceneNode.h"
 #include "StyleSpec.h"
+// irr includes
+#include <ICameraSceneNode.h>
 #include <IAnimatedMeshSceneNode.h>
 #include <IGUIElement.h>
 #include <IGUIEnvironment.h>
 
-using namespace irr;
+namespace core = irr::core;
+namespace gui = irr::gui;
+namespace scene = irr::scene;
+namespace video = irr::video;
 
 class GUIScene : public gui::IGUIElement
 {

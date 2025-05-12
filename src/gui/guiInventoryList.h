@@ -75,7 +75,7 @@ public:
 
 	virtual void draw() override;
 
-	virtual bool OnEvent(const SEvent &event) override;
+	virtual bool OnEvent(const irr::SEvent &event) override;
 
 	const InventoryLocation &getInventoryloc() const
 	{

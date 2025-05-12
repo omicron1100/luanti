@@ -6,10 +6,14 @@
 
 #include <string>
 #include <vector>
-#include <IrrlichtDevice.h>
 #include "client/shadows/dynamicshadows.h"
+// irr includes
+#include <IrrlichtDevice.h>
 #include <ISceneNode.h>
 #include <ISceneManager.h>
+
+namespace scene = irr::scene;
+namespace video = irr::video;
 
 class ShadowDepthShaderCB;
 class shadowScreenQuad;
@@ -42,7 +46,7 @@ class ShadowRenderer
 public:
 	static const int TEXTURE_LAYER_SHADOW = 3;
 
-	ShadowRenderer(IrrlichtDevice *device, Client *client);
+	ShadowRenderer(irr::IrrlichtDevice *device, Client *client);
 	~ShadowRenderer();
 
 	// Call before generating any shaders
@@ -165,4 +169,4 @@ private:
  * @param client Reference to the client context.
  * @return A new ShadowRenderer instance or nullptr if shadows are disabled or not supported.
  */
-ShadowRenderer *createShadowRenderer(IrrlichtDevice *device, Client *client);
+ShadowRenderer *createShadowRenderer(irr::IrrlichtDevice *device, Client *client);

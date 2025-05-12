@@ -8,7 +8,10 @@
 #include <string>
 
 #include "modalMenu.h"
-#include "IGUIFileOpenDialog.h"
+// irr includes
+#include <IGUIFileOpenDialog.h>
+
+namespace gui = irr::gui;
 
 struct TextDest;
 
@@ -27,7 +30,7 @@ public:
 
 	void drawMenu();
 
-	bool OnEvent(const SEvent &event);
+	bool OnEvent(const irr::SEvent &event);
 
 	void setTextDest(TextDest *dest) { m_text_dst = dest; }
 

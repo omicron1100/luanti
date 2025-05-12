@@ -5,6 +5,7 @@
 #include "tile.h"
 #include <cassert>
 
+using namespace irr;
 void AnimationInfo::updateTexture(video::SMaterial &material, float animation_time)
 {
 	// Figure out current frame

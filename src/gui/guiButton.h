@@ -32,7 +32,7 @@ public:
 	virtual ~GUIButton();
 
 	//! called if an event happened.
-	virtual bool OnEvent(const SEvent& event) override;
+	virtual bool OnEvent(const irr::SEvent& event) override;
 
 	//! draws the element and its children
 	virtual void draw() override;

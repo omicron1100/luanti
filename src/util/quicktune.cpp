@@ -6,6 +6,8 @@
 #include "threading/mutex_auto_lock.h"
 #include "util/string.h"
 
+using namespace irr;
+
 std::string QuicktuneValue::getString()
 {
 	switch(type){

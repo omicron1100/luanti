@@ -12,6 +12,8 @@
 #include "secondstage.h"
 #include "client/shadows/dynamicshadowsrender.h"
 
+using namespace irr;
+
 struct CreatePipelineResult
 {
 	v2f virtual_size_scale;

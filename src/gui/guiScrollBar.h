@@ -20,7 +20,7 @@ the arrow buttons where there is insufficient space.
 
 namespace core = irr::core;
 namespace gui = irr::gui;
-
+namespace video = irr::video;
 class ISimpleTextureSource;
 
 class GUIScrollBar : public gui::IGUIElement

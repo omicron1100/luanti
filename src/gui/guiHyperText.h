@@ -202,7 +202,7 @@ public:
 
 	core::dimension2du getTextDimension();
 
-	bool OnEvent(const SEvent &event);
+	bool OnEvent(const irr::SEvent &event);
 
 protected:
 	// GUI members

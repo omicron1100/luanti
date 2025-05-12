@@ -29,6 +29,7 @@
 #include <IGUIElement.h>
 #include <IGUIEnvironment.h>
 
+using namespace irr;
 using namespace irr::core;
 using namespace irr::gui;
 

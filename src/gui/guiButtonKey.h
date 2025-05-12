@@ -41,7 +41,7 @@ public:
 			const wchar_t *tooltiptext = L"");
 
 	//! Called if an event happened
-	virtual bool OnEvent(const SEvent &event) override;
+	virtual bool OnEvent(const irr::SEvent &event) override;
 
 private:
 	void sendKey();

@@ -276,8 +276,8 @@ public:
 	s16 getNextInventoryRing(const InventoryLocation &inventoryloc, const std::string &listname);
 
 	void acceptInput(FormspecQuitMode quitmode=quit_mode_no);
-	bool preprocessEvent(const SEvent& event);
-	bool OnEvent(const SEvent& event);
+	bool preprocessEvent(const irr::SEvent& event);
+	bool OnEvent(const irr::SEvent& event);
 	bool doPause;
 	bool pausesGame() { return doPause; }
 

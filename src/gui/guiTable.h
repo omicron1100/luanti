@@ -129,7 +129,7 @@ public:
 	virtual void draw();
 
 	/* Irrlicht event handler */
-	virtual bool OnEvent(const SEvent &event);
+	virtual bool OnEvent(const irr::SEvent &event);
 
 protected:
 	enum ColumnType {

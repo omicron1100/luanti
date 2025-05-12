@@ -58,6 +58,7 @@
 #include <IGUIImage.h>
 #include <IAnimatedMeshSceneNode.h>
 
+using namespace irr;
 using namespace irr::core;
 using namespace irr::gui;
 

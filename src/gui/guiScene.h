@@ -35,7 +35,7 @@ public:
 	void setStyles(const std::array<StyleSpec, StyleSpec::NUM_STATES> &styles);
 
 	virtual void draw();
-	virtual bool OnEvent(const SEvent &event);
+	virtual bool OnEvent(const irr::SEvent &event);
 
 private:
 	void calcOptimalDistance();

@@ -4,10 +4,15 @@
 
 #pragma once
 
-#include <IGUIFont.h>
-#include <IVideoDriver.h>
 #include "irrlichttypes.h"
 #include "irr_v3d.h"
+// irr includes
+#include <IGUIFont.h>
+#include <IVideoDriver.h>
+
+namespace core = irr::core;
+namespace gui = irr::gui;
+namespace video = irr::video;
 
 struct ItemStack;
 class Client;

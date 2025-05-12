@@ -41,7 +41,6 @@
 #include "IVideoDriver.h"
 #include "IrrlichtDevice.h"
 #include "util/enriched_string.h"
-#include "util/basic_macros.h"
 
 #include <map>
 #include <optional>
@@ -93,7 +92,8 @@ namespace gui
 			surface(0)
 		{}
 
-		DISABLE_CLASS_COPY(SGUITTGlyph);
+		SGUITTGlyph(const SGUITTGlyph &) = delete;
+		SGUITTGlyph &operator=(const SGUITTGlyph &) = delete;
 
 		//! This class would be trivially copyable except for the reference count on `surface`.
 		SGUITTGlyph(SGUITTGlyph &&other) noexcept :

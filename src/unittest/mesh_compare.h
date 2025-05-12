@@ -5,7 +5,7 @@
 #pragma once
 #include <array>
 #include <vector>
-#include <irrlichttypes.h>
+#include <core/types.h>
 #include <S3DVertex.h>
 
 namespace video = irr::video;

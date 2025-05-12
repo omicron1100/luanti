@@ -6,7 +6,7 @@
 
 #include <map>
 #include <unordered_map>
-#include "irrlichttypes.h"
+#include "core/types.h"
 #include "util/basic_macros.h"
 #include "threading/mutex_auto_lock.h"
 #include "irrlicht_changes/CGUITTFont.h"

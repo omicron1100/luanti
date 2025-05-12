@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "irrlichttypes.h"
+#include "core/types.h"
 // irr includes
 #include <path.h>
 #include <rect.h>

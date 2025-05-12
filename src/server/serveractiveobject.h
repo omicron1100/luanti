@@ -7,7 +7,7 @@
 #include <cassert>
 #include <unordered_set>
 #include <optional>
-#include "irrlichttypes.h"
+#include "core/types.h"
 #include "irr_v2d.h"
 #include "irr_v3d.h"
 #include "activeobject.h"

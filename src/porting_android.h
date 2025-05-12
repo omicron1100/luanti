@@ -8,7 +8,7 @@
 #error This header has to be included on Android port only!
 #endif
 
-#include "irrlichttypes.h"
+#include "core/types.h"
 #include "irr_v2d.h"
 #include <string>
 

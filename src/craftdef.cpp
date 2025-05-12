@@ -4,7 +4,7 @@
 
 #include "craftdef.h"
 
-#include "irrlichttypes.h"
+#include "core/types.h"
 #include "log.h"
 #include <sstream>
 #include <unordered_set>

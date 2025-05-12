@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "irrlichttypes.h"
+#include "core/types.h"
 #include "itemgroup.h"
 #include "json-forwards.h"
 #include "util/enum_string.h"

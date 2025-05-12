@@ -9,7 +9,7 @@
 #include <sstream>
 #include <vector>
 
-#include "irrlichttypes.h"
+#include "core/types.h"
 #include "porting.h"
 #include "filesys.h"
 #include "mapnode.h"

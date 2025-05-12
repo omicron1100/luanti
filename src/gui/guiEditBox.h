@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "irrlichttypes.h"
+#include "core/types.h"
 #include "guiScrollBar.h"
 #include <vector>
 // irr includes

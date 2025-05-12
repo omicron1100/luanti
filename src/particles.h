@@ -8,7 +8,7 @@
 #include <sstream>
 #include <vector>
 #include <type_traits>
-#include "irrlichttypes.h"
+#include "core/types.h"
 #include "tileanimation.h"
 #include "mapnode.h"
 #include "util/serialize.h"

@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "irrlichttypes.h"
+#include "core/types.h"
 #include "exceptions.h"
 #include <iostream>
 #include <string_view>

@@ -7,7 +7,7 @@
 /******************************************************************************/
 /* Includes                                                                   */
 /******************************************************************************/
-#include "irrlichttypes.h"
+#include "core/types.h"
 #include "guiFormSpecMenu.h"
 #include "client/clouds.h"
 #include "client/sound.h"

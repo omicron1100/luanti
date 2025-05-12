@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include "irrlichttypes.h"
+#include "core/types.h"
 #include "irr_v3d.h"
 
 #include <string>

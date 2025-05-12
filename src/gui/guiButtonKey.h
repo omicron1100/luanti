@@ -8,7 +8,8 @@
 #include "util/string.h"
 #include "gettext.h"
 
-using namespace irr;
+namespace core = irr::core;
+namespace gui = irr::gui;
 
 class GUIButtonKey : public GUIButton
 {

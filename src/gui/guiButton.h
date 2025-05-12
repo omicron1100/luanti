@@ -4,15 +4,18 @@
 
 #pragma once
 
-#include <IGUIStaticText.h>
-#include "irrlicht_changes/static_text.h"
-#include "IGUIButton.h"
-#include "IGUISpriteBank.h"
-#include "ITexture.h"
-#include "SColor.h"
 #include "StyleSpec.h"
+#include "irrlicht_changes/static_text.h"
+// irr includes
+#include <IGUIButton.h>
+#include <IGUISpriteBank.h>
+#include <ITexture.h>
+#include <IGUIStaticText.h>
+#include <SColor.h>
 
-using namespace irr;
+namespace core = irr::core;
+namespace gui = irr::gui;
+namespace video = irr::video;
 
 class ISimpleTextureSource;
 

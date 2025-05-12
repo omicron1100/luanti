@@ -5,11 +5,14 @@
 #pragma once
 
 #include "guiButton.h"
-#include "IGUIButton.h"
 #include "guiAnimatedImage.h"
 #include "irr_ptr.h"
+// irr includes
+#include <IGUIButton.h>
 
-using namespace irr;
+namespace core = irr::core;
+namespace gui = irr::gui;
+namespace video = irr::video;
 
 class GUIButtonImage : public GUIButton
 {

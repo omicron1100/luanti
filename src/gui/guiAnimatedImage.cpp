@@ -6,7 +6,10 @@
 #include "util/string.h"
 #include <string>
 #include <vector>
+// irr includes
 #include <ITexture.h>
+
+using namespace irr;
 
 GUIAnimatedImage::GUIAnimatedImage(gui::IGUIEnvironment *env, gui::IGUIElement *parent,
 	s32 id, const core::rect<s32> &rectangle) :

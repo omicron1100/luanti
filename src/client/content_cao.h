@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "util/types.h"
+#include "core/types.h"
 
 #include "object_properties.h"
 #include "clientobject.h"

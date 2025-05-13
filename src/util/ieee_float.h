@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "util/types.h"
+#include "core/types.h"
 
 enum FloatType
 {

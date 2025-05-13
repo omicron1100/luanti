@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "util/types.h"
+#include "core/types.h"
 #include "inventory.h"
 #include "util/numeric.h"
 #include "client/localplayer.h"

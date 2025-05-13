@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "util/types.h"
+#include "core/types.h"
 #include "irr_v3d.h"
 #include "config.h" // IS_CLIENT_BUILD
 #include <cstdlib>

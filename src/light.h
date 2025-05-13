@@ -5,7 +5,7 @@
 #pragma once
 #include <cassert>
 #include "config.h"
-#include "util/types.h"
+#include "core/types.h"
 
 /*
 	Lower level lighting stuff

@@ -5,7 +5,7 @@
 #pragma once
 
 #include <iostream>
-#include "util/types.h"
+#include "core/types.h"
 #include "irr_v2d.h"
 
 enum TileAnimationType : u8

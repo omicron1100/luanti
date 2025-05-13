@@ -5,7 +5,7 @@
 #pragma once
 
 #include <string>
-#include "util/types.h"
+#include "core/types.h"
 
 /*	Simple PNG encoder. Encodes an RGBA image with no predictors.
 	Returns a binary string. */

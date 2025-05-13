@@ -6,7 +6,7 @@
 
 #include <string>
 #include <vector>
-#include "util/types.h"
+#include "core/types.h"
 
 class IItemDefManager;
 class NodeDefManager;

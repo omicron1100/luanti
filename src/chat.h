@@ -10,7 +10,7 @@
 #include <list>
 #include <optional>
 
-#include "util/types.h"
+#include "core/types.h"
 #include "util/enriched_string.h"
 
 // Chat console related classes

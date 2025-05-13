@@ -5,7 +5,7 @@
 #pragma once
 
 #include "clientenvironment.h"
-#include "util/types.h"
+#include "core/types.h"
 #include <ostream>
 #include <map>
 #include <memory>

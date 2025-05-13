@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include "util/types.h"
+#include "core/types.h"
 #include "irr_v2d.h"
 #include "touchscreenlayout.h"
 #include "itemdef.h"

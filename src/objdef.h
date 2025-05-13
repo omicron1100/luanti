@@ -5,7 +5,7 @@
 #pragma once
 
 #include "util/basic_macros.h" // DISABLE_CLASS_COPY
-#include "util/types.h"
+#include "core/types.h"
 #include <string>
 #include <vector>
 

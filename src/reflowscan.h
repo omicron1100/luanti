@@ -5,7 +5,7 @@
 #pragma once
 
 #include "util/container.h"
-#include "util/types.h"
+#include "core/types.h"
 #include "irr_v3d.h"
 
 class NodeDefManager;

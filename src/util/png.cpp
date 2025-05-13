@@ -10,7 +10,7 @@
 #include <cassert>
 #include "util/serialize.h"
 #include "serialization.h"
-#include "util/types.h"
+#include "core/types.h"
 
 enum {
 	COLOR_GRAY = 0,

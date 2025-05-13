@@ -3,7 +3,7 @@
 // Copyright (C) 2022 x2048, Dmitry Kostenko <codeforsmile@gmail.com>
 #pragma once
 
-#include "util/types.h"
+#include "core/types.h"
 #include "irr_v2d.h"
 #include <vector>
 #include <memory>

@@ -5,7 +5,7 @@
 #pragma once
 
 #include <IEventReceiver.h>
-#include "util/types.h"
+#include "core/types.h"
 
 #include "keys.h"
 #include <bitset>

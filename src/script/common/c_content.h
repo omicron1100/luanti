@@ -20,7 +20,7 @@ extern "C" {
 #include <vector>
 #include <array>
 
-#include "util/types.h"
+#include "core/types.h"
 #include "util/string.h"
 #include "itemgroup.h"
 #include "itemdef.h"

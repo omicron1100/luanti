@@ -12,7 +12,7 @@ the arrow buttons where there is insufficient space.
 
 #pragma once
 
-#include "util/types.h"
+#include "core/types.h"
 #include <optional>
 // irr includes
 #include <IGUIElement.h>

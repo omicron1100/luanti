@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "util/types.h"
+#include "core/types.h"
 
 extern const u16 LATEST_PROTOCOL_VERSION;
 

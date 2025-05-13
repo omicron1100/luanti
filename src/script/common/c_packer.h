@@ -6,7 +6,7 @@
 
 #include <string>
 #include <vector>
-#include "util/types.h"
+#include "core/types.h"
 #include "util/basic_macros.h"
 
 extern "C" {

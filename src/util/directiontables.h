@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "util/types.h"
+#include "core/types.h"
 #include "irr_v3d.h"
 
 /// Direction in the 6D format. g_27dirs contains corresponding vectors.

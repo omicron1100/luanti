@@ -15,7 +15,7 @@
 
 #include <ostream>
 #include <cstring>
-#include "util/types.h"
+#include "core/types.h"
 #include "networkexceptions.h"
 
 struct IPv6AddressBytes

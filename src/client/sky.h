@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "util/types.h"
+#include "core/types.h"
 #include "irr_aabb3d.h"
 #include <array>
 #include "camera.h" // CameraMode

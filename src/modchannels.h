@@ -9,7 +9,7 @@
 #include <vector>
 #include <memory>
 #include "network/networkprotocol.h"
-#include "util/types.h"
+#include "core/types.h"
 
 enum ModChannelState : u8
 {

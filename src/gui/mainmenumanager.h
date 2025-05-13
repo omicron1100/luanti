@@ -10,8 +10,8 @@
 #include "modalMenu.h"
 #include <cassert>
 #include <list>
-
-#include "IGUIEnvironment.h"
+// irr includes
+#include <IGUIEnvironment.h>
 
 namespace irr::gui {
 	class IGUIStaticText;

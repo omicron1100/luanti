@@ -4,12 +4,13 @@
 
 #pragma once
 
-#include <IEventReceiver.h>
 #include "core/types.h"
 
 #include "keys.h"
 #include <bitset>
 #include <vector>
+// irr includes
+#include <IEventReceiver.h>
 
 enum JoystickAxis {
 	JA_SIDEWARD_MOVE,

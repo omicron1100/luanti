@@ -2,27 +2,27 @@
 // SPDX-License-Identifier: LGPL-2.1-or-later
 // Copyright (C) 2010-2013 celeron55, Perttu Ahola <celeron55@gmail.com>
 
-#include "gui/mainmenumanager.h"
+#include "clientlauncher.h"
 #include "clouds.h"
-#include "gui/touchcontrols.h"
-#include "filesys.h"
+#include "gui/mainmenumanager.h"
 #include "gui/guiMainMenu.h"
+#include "gui/touchcontrols.h"
+#include "gui/guiEngine.h"
+#include "filesys.h"
 #include "game.h"
 #include "player.h"
 #include "chat.h"
 #include "gettext.h"
 #include "inputhandler.h"
 #include "profiler.h"
-#include "gui/guiEngine.h"
 #include "fontengine.h"
-#include "clientlauncher.h"
 #include "version.h"
 #include "renderingengine.h"
 #include "settings.h"
 #include "util/tracy_wrapper.h"
+#include <unordered_map>
 #include <IGUISpriteBank.h>
 #include <ICameraSceneNode.h>
-#include <unordered_map>
 
 #if USE_SOUND
 	#include "sound/sound_openal.h"

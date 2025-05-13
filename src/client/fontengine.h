@@ -6,12 +6,13 @@
 
 #include <map>
 #include <unordered_map>
-#include "irr_ptr.h"
-#include "irrlicht_changes/CGUITTFont.h"
-#include "util/basic_macros.h"
 #include "core/types.h"
-#include "irrString.h" // utf8_to_wide
+#include "util/basic_macros.h"
 #include "threading/mutex_auto_lock.h"
+#include "irrlicht_changes/CGUITTFont.h"
+//irr includes
+#include <irrString.h> // utf8_to_wide
+#include <irr_ptr.h>
 
 namespace gui = irr::gui;
 

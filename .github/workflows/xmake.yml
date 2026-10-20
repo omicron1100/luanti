@@ -1,0 +1,236 @@
+name: xmake
+
+# Phase 0 of the CMake -> xmake migration (see doc/developing/xmake_migration_plan.md).
+#
+# This workflow builds and tests Luanti with xmake on every platform, in
+# parallel with the existing CMake workflows. It is the shakedown for the
+# xmake build; CMake remains authoritative until all jobs here are green.
+#
+# The Windows and Android jobs are advisory (continue-on-error) for now:
+# their dependency paths have not been validated yet. Remove the markers as
+# they start passing for real.
+
+on:
+  push:
+    paths:
+      - 'lib/**.[ch]'
+      - 'lib/**.cpp'
+      - 'src/**.[ch]'
+      - 'src/**.cpp'
+      - 'irr/**.[ch]'
+      - 'irr/**.cpp'
+      - 'irr/**.mm'
+      - 'po/**.po'
+      - 'client/shaders/**'
+      - 'xmake.lua'
+      - 'xmake/**'
+      - 'util/ci/**'
+      - 'util/helper_mod/**'
+      - '.github/workflows/xmake.yml'
+  pull_request:
+    paths:
+      - 'lib/**.[ch]'
+      - 'lib/**.cpp'
+      - 'src/**.[ch]'
+      - 'src/**.cpp'
+      - 'irr/**.[ch]'
+      - 'irr/**.cpp'
+      - 'irr/**.mm'
+      - 'po/**.po'
+      - 'client/shaders/**'
+      - 'xmake.lua'
+      - 'xmake/**'
+      - 'util/ci/**'
+      - 'util/helper_mod/**'
+      - '.github/workflows/xmake.yml'
+  workflow_dispatch:
+
+env:
+  # Keep in sync with the xmake version used for the migration. Pinning makes
+  # the CI signal reproducible; bump this deliberately.
+  XMAKE_VERSION: '3.1.2'
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  # Linux is the reference platform: the same dependency set as the CMake
+  # workflows, plus xmake itself.
+  linux:
+    name: "Linux (${{ matrix.name }})"
+    runs-on: ubuntu-26.04
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: gcc-debug
+            apt_compiler: g++-16
+            cc: gcc-16
+            cxx: g++-16
+            mode: debug
+            cmake_build_type: Debug
+          - name: clang-release
+            apt_compiler: clang-22
+            cc: clang-22
+            cxx: clang++-22
+            mode: release
+            cmake_build_type: Release
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Install deps
+        run: |
+          source ./util/ci/common.sh
+          install_linux_deps ${{ matrix.apt_compiler }} libluajit-5.1-dev
+
+      - uses: xmake-io/github-action-setup-xmake@v1
+        with:
+          xmake-version: ${{ env.XMAKE_VERSION }}
+          package-cache: true
+          package-cache-key: ${{ runner.os }}-${{ matrix.name }}
+
+      - name: Configure
+        run: |
+          xmake f -c -y -m ${{ matrix.mode }} \
+            --cc=${{ matrix.cc }} --cxx=${{ matrix.cxx }} \
+            --run_in_place=y --server=y --unittests=y \
+            --spatial=n --curses=n --prometheus=n
+
+      - name: Build
+        run: xmake build -j$(nproc)
+
+      - name: Unittests
+        run: |
+          ./bin/luanti --run-unittests
+          ./bin/luantiserver --run-unittests
+
+      - name: Header parity
+        run: |
+          PARITY_CMAKE_FLAGS="-DCMAKE_BUILD_TYPE=${{ matrix.cmake_build_type }}" \
+            ./util/ci/parity.sh cmake
+          ./util/ci/parity.sh compare
+
+      - name: Upload CMake reference headers
+        uses: actions/upload-artifact@v7
+        with:
+          name: cmake-reference-${{ matrix.name }}
+          path: .parity/cmake/
+          if-no-files-found: error
+
+  macos:
+    name: "macOS (release)"
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Install deps
+        run: |
+          source ./util/ci/common.sh
+          install_macos_brew_deps
+          # Not covered by install_macos_brew_deps, but needed for the
+          # sound and content-database features.
+          brew install openal-soft libzip
+
+      - uses: xmake-io/github-action-setup-xmake@v1
+        with:
+          xmake-version: ${{ env.XMAKE_VERSION }}
+          package-cache: true
+          package-cache-key: ${{ runner.os }}
+
+      - name: Configure
+        run: |
+          xmake f -c -y -m release \
+            --run_in_place=y --unittests=y \
+            --leveldb=n --redis=n --postgresql=n \
+            --spatial=n --curses=n --prometheus=n
+
+      - name: Build
+        run: xmake build -j$(sysctl -n hw.logicalcpu)
+
+      - name: Unittests
+        run: ./bin/luanti --run-unittests
+
+  # Cross-compiled with the Debian mingw-w64 toolchain. The release builds
+  # will keep using the pinned llvm-mingw toolchain; that is phase 3 work.
+  mingw:
+    name: "MinGW-w64 x86_64 (build)"
+    runs-on: ubuntu-24.04
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Install deps
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends g++-mingw-w64-x86-64
+
+      - uses: xmake-io/github-action-setup-xmake@v1
+        with:
+          xmake-version: ${{ env.XMAKE_VERSION }}
+          package-cache: true
+          package-cache-key: ${{ runner.os }}-mingw
+
+      - name: Configure
+        run: |
+          xmake f -c -y -p mingw -a x86_64 -m release \
+            --mingw=/usr \
+            --server=n --unittests=n \
+            --redis=n --postgresql=n \
+            --spatial=n --curses=n --prometheus=n
+
+      - name: Build
+        run: xmake build luanti -j$(nproc)
+
+  # Native MSVC build. Unlike the CMake workflow this does not use vcpkg;
+  # dependencies come from xmake-repo. This is the riskiest dependency path,
+  # see the migration plan.
+  msvc:
+    name: "MSVC x86_64 (build + unittests)"
+    runs-on: windows-2025-vs2026
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: xmake-io/github-action-setup-xmake@v1
+        with:
+          xmake-version: ${{ env.XMAKE_VERSION }}
+          package-cache: true
+          package-cache-key: ${{ runner.os }}-msvc
+
+      - name: Configure
+        run: |
+          xmake f -c -y -m release \
+            --run_in_place=y --unittests=y \
+            --postgresql=n \
+            --spatial=n --curses=n --prometheus=n
+
+      - name: Build
+        run: xmake build -j${NUMBER_OF_PROCESSORS:-4}
+
+      - name: Unittests
+        run: xmake run luanti --run-unittests
+
+  android:
+    name: "Android arm64-v8a (build)"
+    runs-on: ubuntu-26.04
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: xmake-io/github-action-setup-xmake@v1
+        with:
+          xmake-version: ${{ env.XMAKE_VERSION }}
+          package-cache: true
+          package-cache-key: ${{ runner.os }}-android
+
+      - name: Configure
+        run: |
+          xmake f -c -y -p android -a arm64-v8a -m release \
+            --ndk=$ANDROID_NDK_LATEST_HOME --ndk_stdcxx=y \
+            --gettext=n --server=n --unittests=n \
+            --leveldb=n --redis=n --postgresql=n \
+            --spatial=n --curses=n --prometheus=n
+
+      - name: Build
+        run: xmake build luanti -j$(nproc)

@@ -121,6 +121,42 @@ plan for this being a multi-week effort, with the Linux path finishable quickly.
 - Exit criteria: xmake jobs exist and pass on all CI platforms; reference
   artifacts archived.
 
+**Status (work in progress).**
+
+- `util/ci/parity.sh` captures the CMake reference configuration and compares
+  the generated configuration headers with an xmake build. The reference flags
+  are pinned in the script (`cmake` / `xmake` / `compare` / `all` subcommands,
+  artifacts in `.parity/`, which is gitignored). It only compares headers for
+  now; version/install/package comparisons belong to phase 2.
+- `.github/workflows/xmake.yml` builds and tests with xmake on Linux (gcc and
+  clang), macOS, Windows (mingw and MSVC) and Android, next to the existing
+  CMake workflows. Windows/Android are advisory (`continue-on-error`) until
+  their dependency paths are proven.
+- Local validation: a clean copy of the tree configured with
+  `xmake f -m debug --run_in_place=y --server=y --unittests=y` built from
+  scratch and both unittest suites passed (client 50 modules / 356 tests,
+  server 44 modules / 342 tests).
+- Shakedown finding: feature dependencies were hard `add_requires()` calls, so
+  a missing library failed the whole configure (e.g. the default
+  `--spatial=y` fails on a fresh machine because `libspatialindex` is not in
+  xmake-repo; `postgresql` is a system-only package). They are now
+  `{optional = true}` like CMake's "found, otherwise disable with a warning"
+  behaviour. `libspatialindex` still needs an xmake-repo port or a documented
+  fallback before spatial can be enabled on a stock Linux install.
+- Header parity (Linux release and debug, matching feature flags): identical
+  after ignoring `ENABLE_UPDATE_CHECKER` and `ICON_DIR`. The first differs
+  because `CMakeLists.txt` has a typo (`set(ENABLE_UPDATE_CHECKER (NOT
+  ${DEVELOPMENT_BUILD}) ...)` always evaluates truthy) while xmake implements
+  the documented intent; `ICON_DIR` is an unused legacy macro. `USE_LEVELDB`
+  only matches when both builds resolve the same library source (xmake may
+  build a private package CMake cannot see). The Linux CI job now runs this
+  comparison and uploads the CMake reference headers.
+- The stale CMake build tree under `build/` and the leftover `out/` tree were
+  archived outside the repository; `build/` now only contains xmake state.
+- Remaining: run the workflow on the real CI platforms and fix the failures,
+  then archive reference artifacts per platform. Linux is validated locally;
+  macOS, Windows and Android have not been exercised yet.
+
 ### Phase 1 — Make xmake self-contained for the build (small/medium)
 
 Remove the last build-time dependency on CMake templates.

@@ -110,7 +110,9 @@ end
 
 for _, feature in ipairs(FEATURES) do
     if has_config(feature.option) then
-        add_requires(feature.requirement or feature.package)
+        -- Match CMake: a feature whose dependency is unavailable is disabled
+        -- with a warning instead of failing the whole configuration.
+        add_requires(feature.requirement or feature.package, {optional = true})
     end
 end
 
@@ -128,7 +130,9 @@ if has_config("client") then
     end
 
     if has_config("sound") then
-        add_requires("openal-soft", "libvorbis", "libogg")
+        -- Disable sound rather than fail if OpenAL/Vorbis are unavailable,
+        -- like the CMake build does.
+        add_requires("openal-soft", "libvorbis", "libogg", {optional = true})
     end
 end
 

@@ -145,3 +145,5 @@ client/mod_storage.sqlite
 
 # Xmake
 .xmake/
+# CMake/xmake parity artifacts (util/ci/parity.sh)
+.parity/
